@@ -1,0 +1,1 @@
+// remove this file in the future. This folder where this file exists is where all HiveObjects would be placed
