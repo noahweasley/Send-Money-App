@@ -16,7 +16,7 @@ class AuthRepository {
   /// login user
   Future<LoginResponse> loginAsync(LoginRequest request) async {
     try {
-      var response = await apiConnectionHelper.postDataAsync(
+      final response = await apiConnectionHelper.postDataAsync(
         path: Endpoint.login,
         requestData: request,
       );
@@ -37,7 +37,7 @@ class AuthRepository {
 
   Future<SignupResponse> signupAsync(SignupRequest request) async {
     try {
-      var response = await apiConnectionHelper.postDataAsync(
+      final response = await apiConnectionHelper.postDataAsync(
         path: Endpoint.signup,
         requestData: request,
       );

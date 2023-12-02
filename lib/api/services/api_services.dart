@@ -10,19 +10,19 @@ class APIService {
   static var client = http.Client();
 
   static Future<bool> transfer(TransactionModel model) async {
-    var loginDetails = SessionManager.getLoginDetails();
+    final loginDetails = SessionManager.getLoginDetails();
 
-    Map<String, String> requestHeaders = {
+    final Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ${loginDetails!.data.token}'
     };
 
-    var url = Uri.http(
+    final url = Uri.http(
       Config.apiURL,
       Config.transferAPI,
     );
 
-    var response = await client.post(
+    final response = await client.post(
       url,
       headers: requestHeaders,
       body: jsonEncode(model.toJson()),
@@ -36,19 +36,19 @@ class APIService {
   }
 
   static Future<bool> withdraw(TransactionModel model) async {
-    var loginDetails = SessionManager.getLoginDetails();
+    final loginDetails = SessionManager.getLoginDetails();
 
-    Map<String, String> requestHeaders = {
+    final Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ${loginDetails!.data.token}'
     };
 
-    var url = Uri.http(
+    final url = Uri.http(
       Config.apiURL,
       Config.withdrawAPI,
     );
 
-    var response = await client.post(
+    final response = await client.post(
       url,
       headers: requestHeaders,
       body: jsonEncode(model.toJson()),
@@ -62,24 +62,24 @@ class APIService {
   }
 
   static Future<List<TransactionModel>?> getTransactions() async {
-    var loginDetails = SessionManager.getLoginDetails();
+    final loginDetails = SessionManager.getLoginDetails();
 
-    Map<String, String> requestHeaders = {
+    final Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ${loginDetails!.data.token}'
     };
 
-    var singleTransactionURL = '${Config.singleTransactionAPI}/${loginDetails.data.phoneNumber}';
+    const singleTransactionURL = '';
 
-    var url = Uri.http(
+    final url = Uri.http(
       Config.apiURL,
       singleTransactionURL,
     );
 
-    var response = await client.get(url, headers: requestHeaders);
+    final response = await client.get(url, headers: requestHeaders);
 
     if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       return transactionsFromJson(data['transaction']);
     } else {
       return null;
@@ -87,24 +87,24 @@ class APIService {
   }
 
   static Future<List<UserModel>?> getUserProfile() async {
-    var loginDetails = SessionManager.getLoginDetails();
+    final loginDetails = SessionManager.getLoginDetails();
 
-    Map<String, String> requestHeaders = {
+    final Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
       'Authorization': 'Basic ${loginDetails!.data.token}'
     };
 
-    var userURL = '${Config.userProfileAPI}/${loginDetails.data.phoneNumber}';
+    const userURL = '';
 
-    var url = Uri.http(Config.apiURL, userURL);
+    final url = Uri.http(Config.apiURL, userURL);
 
-    var response = await client.get(
+    final response = await client.get(
       url,
       headers: requestHeaders,
     );
 
     if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       return usersFromJson(data['data']);
     } else {
       return null;

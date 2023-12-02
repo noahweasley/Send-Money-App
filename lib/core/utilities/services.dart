@@ -38,18 +38,18 @@ class Services {
 
   // date format
   String formatDate(date) {
-    var formattedDate = DateFormat('dd / MM / yyyy hh:mm aa');
-    var outputDate = formattedDate.format(date);
+    final formattedDate = DateFormat('dd / MM / yyyy hh:mm aa');
+    final outputDate = formattedDate.format(date);
     return outputDate;
   }
 
   String formatPrice({context, amount}) {
-    var f = NumberFormat('#,##,##,###,##0');
+    final f = NumberFormat('#,##,##,###,##0');
     // var f = NumberFormat("#,##0");
     // var format =
     //     NumberFormat.simpleCurrency(locale: Platform.localeName, name: '₦');
-    String formattedAmount = f.format(amount);
-    String newAmount = 'NGN $formattedAmount';
+    final String formattedAmount = f.format(amount);
+    final String newAmount = 'NGN $formattedAmount';
     // String newAmount = '${format.currencySymbol}$formatedAmount';
 
     return newAmount;

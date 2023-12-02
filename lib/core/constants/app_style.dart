@@ -72,7 +72,7 @@ class AppStyle {
   /// Inherits properties from [headline1].
   /// Color: AppColor.primary
   static TextStyle headline1Primary = headline1.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline 1 with primary dark color.
@@ -115,7 +115,7 @@ class AppStyle {
   /// Inherits properties from [headline2].
   /// Color: AppColor.primary
   static TextStyle headline2Primary = headline2.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline 2 with primary dark color.
@@ -158,7 +158,7 @@ class AppStyle {
   /// Inherits properties from [headline3].
   /// Color: AppColor.primary
   static TextStyle headline3Primary = headline3.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline3 with primary dark color.
@@ -209,7 +209,7 @@ class AppStyle {
   /// Inherits properties from [headline4].
   /// Color: AppColor.primary
   static TextStyle headline4Primary = headline4.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline4 with primary dark color.
@@ -252,7 +252,7 @@ class AppStyle {
   /// Inherits properties from [headline5].
   /// Color: AppColor.primary
   static TextStyle headline5Primary = headline5.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline5 with primary dark color.
@@ -295,7 +295,7 @@ class AppStyle {
   /// Inherits properties from [headline6].
   /// Color: AppColor.primary
   static TextStyle headline6Primary = headline6.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for headline6 with primary dark color.
@@ -338,7 +338,7 @@ class AppStyle {
   /// Inherits properties from [title].
   /// Color: AppColor.primary
   static TextStyle titlePrimary = title.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for title with primary tint color.
@@ -413,7 +413,7 @@ class AppStyle {
   /// Inherits properties from [subtitle1].
   /// Color: AppColor.primary
   static TextStyle subtitle1Primary = subtitle1.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for subtitle1 with primary tint color.
@@ -476,7 +476,7 @@ class AppStyle {
   /// Inherits properties from [subtitle2].
   /// Color: AppColor.primary
   static TextStyle subtitle2Primary = subtitle2.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for subtitle2 with primary main color.
@@ -512,9 +512,17 @@ class AppStyle {
   /// Text style for body1 with primary color.
   ///
   /// Inherits properties from [body1].
+  /// Color: AppColor.background
+  static TextStyle body1White = body1.copyWith(
+    color: AppColor.background,
+  );
+
+  /// Text style for body1 with primary color.
+  ///
+  /// Inherits properties from [body1].
   /// Color: AppColor.primary
   static TextStyle body1Primary = body1.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for body1 with primary dark color.
@@ -544,7 +552,7 @@ class AppStyle {
   /// Inherits properties from [body2].
   /// Color: AppColor.primary
   static TextStyle body2Primary = body2.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for body2 with primary dark color.
@@ -574,7 +582,7 @@ class AppStyle {
   /// Inherits properties from [button].
   /// Color: AppColor.primary
   static TextStyle buttonPrimary = button.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for button with primary dark color.
@@ -604,7 +612,7 @@ class AppStyle {
   /// Inherits properties from [caption].
   /// Color: AppColor.primary
   static TextStyle captionPrimary = caption.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for caption with primary main color.
@@ -642,7 +650,7 @@ class AppStyle {
   /// Inherits properties from [overline].
   /// Color: AppColor.primary
   static TextStyle overlinePrimary = overline.copyWith(
-    color: AppColor.primary,
+    color: AppColor.primaryDark,
   );
 
   /// Text style for overline with primary dark color.

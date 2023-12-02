@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
@@ -6,17 +7,15 @@ import 'package:veegil/core/utilities/extensions/widget_extension.dart';
 import 'package:veegil/core/widget/util.dart';
 
 /// Dialog types
-enum DialogType { info, warning, message }
+enum NotificationType { info, warning, message }
 
 class _Dialog extends StatelessWidget {
-  final BuildContext context;
   final String title;
   final String subtitle;
-  final DialogType? dialogType;
+  final NotificationType? dialogType;
   final List<DialogButton>? buttons;
 
-  const _Dialog(
-    this.context, {
+  const _Dialog({
     required this.title,
     required this.subtitle,
     this.dialogType,
@@ -25,9 +24,9 @@ class _Dialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var titleStyle = dialogType == DialogType.warning
+    final titleStyle = dialogType == NotificationType.warning
         ? AppStyle.titleError
-        : (dialogType == DialogType.message ? AppStyle.titleGreen : AppStyle.titlePrimaryDark);
+        : (dialogType == NotificationType.message ? AppStyle.titleGreen : AppStyle.titlePrimaryDark);
 
     return Dialog(
       backgroundColor: AppColor.background,
@@ -99,25 +98,41 @@ class DialogButton {
   });
 }
 
-/// show custom pop-up dialog
-Future<T?> showAppDialog<T>(
-  BuildContext context, {
-  DialogType? dialogType,
-  bool barrierDismissible = false,
-  required String title,
-  required String subtitle,
-  List<DialogButton>? buttons,
-}) async {
-  return await showDialog<T>(
-    context: context,
-    barrierDismissible: barrierDismissible,
-    barrierColor: Colors.black.withOpacity(0.3),
-    builder: (context) => _Dialog(
-      context,
-      title: title,
-      subtitle: subtitle,
-      buttons: buttons,
-      dialogType: dialogType,
-    ),
-  );
+class Notifiers {
+  /// show custom pop-up dialog
+  static Future<T?> showAppDialog<T>({
+    NotificationType? dialogType,
+    bool barrierDismissible = false,
+    required String title,
+    required String subtitle,
+    List<DialogButton>? buttons,
+  }) async {
+    return Get.dialog(
+      _Dialog(
+        dialogType: dialogType,
+        buttons: buttons,
+        title: title,
+        subtitle: subtitle,
+      ),
+    );
+  }
+
+  static SnackbarController showSnackBar({
+    required String message,
+    NotificationType? type = NotificationType.message,
+  }) {
+    final color = type == NotificationType.warning
+        ? AppColor.red
+        : (type == NotificationType.message ? AppColor.green : AppColor.primaryDark);
+
+    return Get.showSnackbar(
+      GetSnackBar(
+        messageText: Text(
+          message,
+          style: AppStyle.titleWhite,
+        ),
+        backgroundColor: color,
+      ),
+    );
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:veegil/core/constants/colors.dart';
 
+// TODO: Delete this file
 extension WidgetExtension on Widget? {
   /// With custom height and width
   SizedBox withSize({double width = 0.0, double height = 0.0}) {

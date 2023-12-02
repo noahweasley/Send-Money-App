@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:veegil/api/repositories/auth_repository.dart';
 import 'package:veegil/api/services/requests/login_request/login_request.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
+import 'package:veegil/core/navigation/app_routes.dart';
+import 'package:veegil/core/utilities/extensions/error_extension.dart';
+import 'package:veegil/core/widget/notifiers.dart';
 
 class LoginController extends GetxController {
   final userRepository = AuthRepository();
@@ -32,19 +35,18 @@ class LoginController extends GetxController {
       formState.save();
       isLoading = true;
 
-      LoginRequest request = LoginRequest(
+      final LoginRequest request = LoginRequest(
         phoneNumber: phoneNumberTextController.text,
         password: passwordTextController.text,
       );
 
       try {
         final response = await userRepository.loginAsync(request);
-        SessionManager.setLoginDetails(response);
+        SessionManager.writeAuthorizationToken(response.data.token);
+        Get.offAllNamed(Routes.main);
       } on Exception catch (err) {
-        Get.snackbar(
-          'Information',
-          err.toString(),
-          snackPosition: SnackPosition.BOTTOM,
+        Notifiers.showSnackBar(
+          message: err.neatMessage,
         );
       } finally {
         isLoading = false;

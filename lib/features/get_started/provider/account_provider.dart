@@ -11,21 +11,21 @@ class AccountProvider with ChangeNotifier {
   static var client = http.Client();
 
   getBalance() async {
-    var loginDetails = SessionManager.getLoginDetails();
+    final loginDetails = SessionManager.getLoginDetails();
 
-    Map<String, String> requestHeaders = {
+    final Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ${loginDetails!.data.token}'
     };
 
-    var accountBalanceURL = '${Config.accountBalanceAPI}/${loginDetails.data.phoneNumber}';
+    const accountBalanceURL = '';
 
-    var url = Uri.http(Config.apiURL, accountBalanceURL);
+    final url = Uri.http(Config.apiURL, accountBalanceURL);
 
-    var response = await client.get(url, headers: requestHeaders);
+    final response = await client.get(url, headers: requestHeaders);
 
     if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       accountBalance = data;
 
       notifyListeners();

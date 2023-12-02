@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 
+// TODO: Delete this file
 class WidgetUtil {
   static BorderRadius get borderRadiusCircularOnlyTop1 =>
       const BorderRadius.vertical(top: Radius.circular(Dimensions.borderRadius1));
@@ -22,11 +23,11 @@ class WidgetUtil {
   static BorderRadius get borderRadiusCircularAllSides3 => BorderRadius.circular(Dimensions.borderRadius3);
   static BorderRadius get borderRadiusCircularAllSides4 => BorderRadius.circular(Dimensions.borderRadius5);
 
-  static Border get borderPrimaryDark => Border.all(color: AppColor.primaryDark, width: 1);
-  static Border get borderPrimaryTint => Border.all(color: AppColor.primaryTint, width: 1);
-  static Border get borderGreen => Border.all(color: AppColor.green, width: 1);
-  static Border get borderPrimaryMain => Border.all(color: AppColor.primaryMain, width: 1);
-  static Border get borderSecondaryDarker => Border.all(color: AppColor.secondaryDarker, width: 1);
+  static Border get borderPrimaryDark => Border.all(color: AppColor.primaryDark, width: 0.5);
+  static Border get borderPrimaryTint => Border.all(color: AppColor.primaryTint, width: 0.5);
+  static Border get borderGreen => Border.all(color: AppColor.green, width: 0.5);
+  static Border get borderPrimaryMain => Border.all(color: AppColor.primaryMain, width: 0.5);
+  static Border get borderSecondaryDarker => Border.all(color: AppColor.secondaryDarker, width: 0.5);
 
   static Border get borderPrimaryDark2 => Border.all(color: AppColor.primaryDark, width: 2);
   static Border get borderPrimaryTint2 => Border.all(color: AppColor.primaryTint, width: 2);

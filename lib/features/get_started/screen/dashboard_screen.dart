@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:veegil/core/constants/app_style.dart';
+import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widget/app_icon.dart';
+import 'package:veegil/core/utilities/extensions/size_extensions.dart';
+import 'package:veegil/core/widget/annotated_status_bar.dart';
+import 'package:veegil/core/widget/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
-import 'package:veegil/features/get_started/screen/main_screen.dart';
+import 'package:veegil/features/get_started/screen/components/action_card.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -11,162 +15,185 @@ class DashboardScreen extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: services.appBar(
-      //   title: 'Veegil Bank App',
-      //   logout: Icons.logout_outlined,
-      //   context: context,
-      // ),
-      body: SingleChildScrollView(
-        physics: const ScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
-              child: Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Container(
-                    color: Colors.deepOrange,
-                    height: 220,
-                    width: MediaQuery.of(context).size.width / .5,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(height: Dimensions.space1),
-                        Center(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              const Text(
-                                'Balance:',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: Dimensions.space1),
-                              Text(
-                                controller.balance,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.black87,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: Dimensions.space1),
-
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    controller.phoneNumber,
-                                    style: const TextStyle(
-                                      // fontFamily: "Anton",
-                                      letterSpacing: 3,
-                                      fontSize: 18,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const AppLogo(),
-                            ],
-                          ),
-                        ),
-                        // _services.sizedBox(h: 10),
-                        Padding(
-                          padding: const EdgeInsets.all(14),
-                          child: Text(
-                            controller.name,
-                            style: const TextStyle(
-                              fontFamily: 'Anton',
-                              letterSpacing: 3,
-                              fontSize: 22,
-                              color: Colors.black87,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+      backgroundColor: AppColor.background,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              AnnotatedStatusBar(
+                child: Column(
+                  children: [
+                    _buildAccountInfo(),
+                    _buildActions(),
+                    _buildRecentTransactions(),
+                  ],
                 ),
               ),
-            ),
-            const SizedBox(height: Dimensions.space6),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  onTap: () {},
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.send,
-                        size: 60,
-                        color: Colors.green,
-                      ),
-                      Text(
-                        'Transfer',
-                        style: TextStyle(fontSize: 20),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: Dimensions.space1),
-                InkWell(
-                  onTap: () {},
-                  child: const Column(
-                    children: [
-                      Icon(
-                        Icons.wallet,
-                        size: 60,
-                        color: Colors.redAccent,
-                      ),
-                      Text(
-                        'Withdraw',
-                        style: TextStyle(fontSize: 20),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: Dimensions.space1),
-            const Divider(thickness: 1),
-            ListTile(
-              leading: const Icon(
-                Icons.receipt_long,
-                size: 30,
-              ),
-              title: const Text('My Transactions', style: TextStyle(fontSize: 18)),
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) {
-                  return const MainScreen(
-                    index: 1,
-                  );
-                }));
-              },
-            ),
-            const Divider(thickness: 1),
-          ],
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildAccountInfo() {
+    return Padding(
+      padding: const EdgeInsets.all(Dimensions.space1),
+      child: SizedBox(
+        height: 200.h,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(Dimensions.space2),
+          decoration: BoxDecoration(
+            color: AppColor.white2,
+            border: WidgetUtil.borderPrimaryDark,
+            borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  _buildGreeting(),
+                  const Spacer(),
+                  _buildSavingsInfo(
+                    alignment: CrossAxisAlignment.end,
+                    reason: 'Account No.',
+                    value: controller.accountNumber,
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  _buildSavingsInfo(
+                    reason: 'Total Savings',
+                    value: controller.balance,
+                  ),
+                  const Spacer(),
+                  _buildTopupButton(),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGreeting() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          controller.greeting,
+          style: AppStyle.title,
+        ),
+        const SizedBox(height: Dimensions.minSpace),
+        Text(
+          controller.name,
+          style: AppStyle.headline6,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSavingsInfo({
+    required String reason,
+    required String value,
+    CrossAxisAlignment? alignment,
+  }) {
+    return Column(
+      crossAxisAlignment: alignment ?? CrossAxisAlignment.start,
+      children: [
+        Text(
+          reason,
+          style: AppStyle.title,
+        ),
+        const SizedBox(height: Dimensions.space1),
+        Text(
+          value,
+          style: AppStyle.headline6,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTopupButton() {
+    return ElevatedButton.icon(
+      onPressed: () {},
+      icon: const Icon(
+        Icons.add_outlined,
+        color: AppColor.dark,
+        size: Dimensions.iconSize,
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        backgroundColor: AppColor.background,
+        minimumSize: const Size(130, 40),
+        side: const BorderSide(color: AppColor.primaryDark),
+      ),
+      label: Text(
+        'Topup',
+        style: AppStyle.body1PrimaryDark,
+      ),
+    );
+  }
+
+  Widget _buildActions() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        //   print(constraints.maxWidth.toInt());
+        return GridView.count(
+          //  crossAxisCount: constraints.maxWidth.toInt() ~/ 200 + 1,
+          physics: const NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          shrinkWrap: true,
+          children: [
+            ActionCard(
+              onTap: () {},
+              color: AppColor.red,
+              iconData: Icons.savings_outlined,
+              title: 'Top up',
+              subtitle: 'Add money to wallet',
+            ),
+            ActionCard(
+              onTap: () {},
+              color: AppColor.primaryMain,
+              iconData: Icons.payment_outlined,
+              title: 'Withdraw',
+              subtitle: 'Withdraw from wallet',
+            ),
+            ActionCard(
+              onTap: () {},
+              color: AppColor.green,
+              iconData: Icons.paid_outlined,
+              title: 'Transfer',
+              subtitle: 'Send money to loved ones',
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildRecentTransactions() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Latest Transactions', style: AppStyle.body1Primary),
+        const SizedBox(height: Dimensions.space2),
+        //   ListView.separated(
+        //     shrinkWrap: true,
+        //     itemCount: controller.transactions.length,
+        //     separatorBuilder: (context, index) {
+        //       return const SizedBox(height: Dimensions.space1);
+        //     },
+        //     itemBuilder: (context, index) {
+        //       return TransactionListItem(item: controller.transactions[index]);
+        //     },
+        //   ),
+      ],
     );
   }
 }

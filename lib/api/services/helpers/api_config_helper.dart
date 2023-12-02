@@ -13,7 +13,7 @@ class ApiConfigHelper {
         baseUrl = defaultBaseUrl;
         break;
       case Environment.production:
-        baseUrl = '';
+        baseUrl = defaultBaseUrl;
         break;
       default:
         baseUrl = defaultBaseUrl; // fallback to staging base url

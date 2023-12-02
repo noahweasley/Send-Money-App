@@ -8,10 +8,10 @@ class TransactionItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Services services = Services();
+    final Services services = Services();
 
     // convert MongoDB timestamp
-    DateTime dateTime = services.getFormattedDateFromFormattedString(
+    final DateTime dateTime = services.getFormattedDateFromFormattedString(
         value: model!.transactionTime, currentFormat: 'yyyy-MM-ddTHH:mm:ssZ', desiredFormat: 'MM/dd/yyyy hh:mm a');
 
     return ListTile(

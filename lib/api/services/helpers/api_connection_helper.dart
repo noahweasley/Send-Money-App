@@ -47,7 +47,7 @@ class ApiConnectionHelper {
     Options? requestOptions,
     Map<String, dynamic>? queryParameters,
   }) async {
-    Response response = await dio.get(
+    final Response response = await dio.get(
       url,
       options: requestOptions,
       queryParameters: queryParameters,
@@ -62,7 +62,7 @@ class ApiConnectionHelper {
     Options? requestOptions,
     Map<String, dynamic>? queryParameters,
   }) async {
-    Response response = await dio.post(
+    final Response response = await dio.post(
       path,
       data: jsonEncode(requestData),
       options: requestOptions,
@@ -78,7 +78,7 @@ class ApiConnectionHelper {
     Options? requestOptions,
     Map<String, dynamic>? queryParameters,
   }) async {
-    Response response = await dio.patch(
+    final Response response = await dio.patch(
       path,
       data: jsonEncode(requestData),
       options: requestOptions,
@@ -94,7 +94,7 @@ class ApiConnectionHelper {
     Options? requestOptions,
     Map<String, dynamic>? queryParameters,
   }) async {
-    Response response = await dio.delete(
+    final Response response = await dio.delete(
       path,
       data: jsonEncode(requestData),
       options: requestOptions,

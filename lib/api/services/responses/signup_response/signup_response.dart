@@ -4,6 +4,7 @@ part 'signup_response.g.dart';
 
 @JsonSerializable()
 class SignupResponse {
+  late final String? status;
   late final String? message;
   late final Data? data;
 
@@ -19,20 +20,12 @@ class SignupResponse {
 
 @JsonSerializable()
 class Data {
-  final String email;
-  final String name;
   final String phoneNumber;
-  final String accountType;
-  final int balance;
-  final String id;
+  final DateTime created;
 
   Data({
-    required this.name,
     required this.phoneNumber,
-    required this.email,
-    required this.accountType,
-    required this.balance,
-    required this.id,
+    required this.created,
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);

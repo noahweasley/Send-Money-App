@@ -2,7 +2,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veegil/core/utilities/services.dart';
-import 'package:veegil/features/auth/screen/login.dart';
 
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({Key? key}) : super(key: key);
@@ -27,7 +26,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Services services = Services();
+    final Services services = Services();
     return Scaffold(
         backgroundColor: Colors.white,
         body: Stack(

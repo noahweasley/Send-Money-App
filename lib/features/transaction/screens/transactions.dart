@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:veegil/api/models/transactions/transaction_model.dart';
 import 'package:veegil/api/services/api_services.dart';
+import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/utilities/services.dart';
 import 'package:veegil/core/widget/transaction_items.dart';
 
@@ -17,12 +18,17 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.background,
       appBar: _services.appBar(
         title: 'My Transactions',
         logout: Icons.logout_outlined,
         context: context,
       ),
-      body: SingleChildScrollView(physics: const ScrollPhysics(), scrollDirection: Axis.vertical, child: loadTransactions()),
+      body: SingleChildScrollView(
+        physics: const ScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        child: loadTransactions(),
+      ),
     );
   }
 

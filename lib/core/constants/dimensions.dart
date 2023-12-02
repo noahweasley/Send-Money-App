@@ -13,4 +13,5 @@ class Dimensions {
   static const double space4 = 32;
   static const double space5 = 40;
   static const double space6 = 48;
+  static const double iconSize = 24;
 }

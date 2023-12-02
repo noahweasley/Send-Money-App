@@ -4,6 +4,7 @@ import 'package:veegil/api/services/api_services.dart';
 import 'package:veegil/core/utilities/custom_flat_button.dart';
 import 'package:veegil/core/utilities/services.dart';
 
+// TODO: Delete this file
 class TransferBottomSheet extends StatefulWidget {
   final String phoneNumber;
   final int balance;
@@ -25,7 +26,7 @@ class _TransferBottomSheetState extends State<TransferBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    Services services = Services();
+    final Services services = Services();
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
@@ -138,7 +139,7 @@ class _TransferBottomSheetState extends State<TransferBottomSheet> {
                               isApiCall = true;
                             });
 
-                            TransactionModel model = TransactionModel(
+                            final TransactionModel model = TransactionModel(
                               sender: widget.phoneNumber,
                               phoneNumber: phoneNumber,
                               transactionAmount: amount,

@@ -10,13 +10,11 @@ import 'package:veegil/core/widget/app_bar.dart';
 import 'package:veegil/core/widget/app_button.dart';
 import 'package:veegil/core/widget/app_icon.dart';
 import 'package:veegil/core/widget/app_textfield.dart';
+import 'package:veegil/core/widget/overlay_indeterminate_progress.dart';
 import 'package:veegil/core/widget/password_strength_bar.dart';
 import 'package:veegil/features/auth/controllers/signup_controller.dart';
 
 class SignupScreen extends GetView<SignupController> {
-  // TODO: Remove this id
-  static const String id = 'sign_up-screen';
-
   const SignupScreen({Key? key}) : super(key: key);
 
   @override
@@ -32,86 +30,93 @@ class SignupScreen extends GetView<SignupController> {
             style: AppStyle.title,
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const Divider(
-                thickness: 1,
-                color: AppColor.primaryTint,
-              ),
-              SingleChildScrollView(
+        body: Obx(() {
+          return OverlayIndeterminateProgress(
+              isLoading: controller.isLoading,
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const SizedBox(height: Dimensions.space1),
-                    Padding(
-                      padding: const EdgeInsets.all(Dimensions.space2),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(bottom: Dimensions.space3),
-                              child: AppLogo(),
-                            ),
-                            Text(
-                              'Create your Veegil Account',
-                              textAlign: TextAlign.center,
-                              style: AppStyle.headline5PrimaryDark,
-                            ),
-                            const SizedBox(height: Dimensions.space6),
-                            Form(
-                              key: controller.formKey,
+                    const Divider(
+                      thickness: 1,
+                      color: AppColor.primaryTint,
+                    ),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          const SizedBox(height: Dimensions.space1),
+                          Padding(
+                            padding: const EdgeInsets.all(Dimensions.space2),
+                            child: SingleChildScrollView(
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  AppTextField(
-                                    title: 'Phone number',
-                                    hintText: 'Enter phone number',
-                                    controller: controller.phoneNumberController,
-                                    validator: PhoneNumberValidator.validate,
+                                  const Padding(
+                                    padding: EdgeInsets.only(bottom: Dimensions.space3),
+                                    child: AppLogo(),
                                   ),
-                                  const SizedBox(height: Dimensions.minSpace),
-                                  _buildRegistrationForm(),
+                                  Text(
+                                    'Create your Veegil Account',
+                                    textAlign: TextAlign.center,
+                                    style: AppStyle.headline5PrimaryDark,
+                                  ),
+                                  const SizedBox(height: Dimensions.space6),
+                                  Form(
+                                    key: controller.formKey,
+                                    child: Column(
+                                      children: [
+                                        AppTextField(
+                                          title: 'Phone number',
+                                          hintText: 'Enter phone number',
+                                          controller: controller.phoneNumberController,
+                                          validator: PhoneNumberValidator.validate,
+                                        ),
+                                        const SizedBox(height: Dimensions.minSpace),
+                                        _buildRegistrationForm(),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: Dimensions.space1),
+                                  Obx(() {
+                                    return AppButton(
+                                      showLoader: controller.isLoading,
+                                      text: 'Sign up',
+                                      onTap: controller.signup,
+                                    );
+                                  }),
+                                  const SizedBox(height: Dimensions.space2),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Already have an account?',
+                                        style: AppStyle.body1,
+                                      ),
+                                      const SizedBox(width: Dimensions.minSpace),
+                                      InkWell(
+                                        borderRadius: BorderRadius.circular(Dimensions.borderRadius1),
+                                        onTap: () => Get.offNamed(Routes.login),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(Dimensions.space1),
+                                          child: Text(
+                                            'Login',
+                                            style: AppStyle.body1SecondaryDark,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),
-                            const SizedBox(height: Dimensions.space1),
-                            AppButton(
-                              text: 'Sign up',
-                              onTap: controller.signup,
-                            ),
-                            const SizedBox(height: Dimensions.space2),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Already have an account?',
-                                  style: AppStyle.body1,
-                                ),
-                                const SizedBox(width: Dimensions.minSpace),
-                                InkWell(
-                                  borderRadius: BorderRadius.circular(Dimensions.borderRadius1),
-                                  onTap: () => Get.offNamed(Routes.login),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(Dimensions.space1),
-                                    child: Text(
-                                      'Login',
-                                      style: AppStyle.body1SecondaryDark,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        ),
+              ));
+        }),
       ),
     );
   }
@@ -126,7 +131,7 @@ class SignupScreen extends GetView<SignupController> {
             obscureText: controller.isPasswordHidden,
             controller: controller.passwordController,
             onChanged: controller.checkPassword,
-            validator: (val) => EquValidator.validate(controller.confirmPasswordController.text, val),
+            validator: PasswordValidator.validateStrong,
             suffixIcon: InkWell(
               onTap: controller.toggleVisibility,
               child: Icon(

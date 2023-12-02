@@ -12,28 +12,21 @@ SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
-    );
+    )..status = json['status'] as String?;
 
 Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>
     <String, dynamic>{
+      'status': instance.status,
       'message': instance.message,
       'data': instance.data,
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      name: json['name'] as String,
       phoneNumber: json['phoneNumber'] as String,
-      email: json['email'] as String,
-      accountType: json['accountType'] as String,
-      balance: json['balance'] as int,
-      id: json['id'] as String,
+      created: DateTime.parse(json['created'] as String),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
-      'email': instance.email,
-      'name': instance.name,
       'phoneNumber': instance.phoneNumber,
-      'accountType': instance.accountType,
-      'balance': instance.balance,
-      'id': instance.id,
+      'created': instance.created.toIso8601String(),
     };

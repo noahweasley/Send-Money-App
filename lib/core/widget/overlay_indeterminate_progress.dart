@@ -15,9 +15,9 @@ class OverlayIndeterminateProgress extends StatelessWidget {
     Key? key,
     required this.child,
     this.loadingMessage,
-    required this.progressColor,
+    this.progressColor,
     required this.isLoading,
-    required this.overlayBackgroundColor,
+    this.overlayBackgroundColor,
   }) : super(key: key);
 
   @override

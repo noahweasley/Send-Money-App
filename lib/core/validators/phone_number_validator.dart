@@ -6,6 +6,6 @@ class PhoneNumberValidator {
   PhoneNumberValidator._();
 
   static String? validate(String? input) {
-    return RegexPattern.nigeriaPhoneNumberPattern.hasMatch(input ?? '') ? null : ErrorMessage.enterValidPhone;
+    return RegexPattern.nigeriaPhoneNumber.hasMatch(input ?? '') ? null : ErrorMessage.enterValidPhone;
   }
 }
