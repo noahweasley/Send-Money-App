@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:veegil/core/app_init.dart';
 import 'package:veegil/core/navigation/app_router.dart';
-import 'package:veegil/features/auth/shared/bindings/main_binding.dart';
-
-void main() async {
-  await AppInitialization.setup();
-  runApp(const MyApp());
-}
+import 'package:veegil/features/shared/bindings/main_binding.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +13,7 @@ class MyApp extends StatelessWidget {
       initialBinding: MainBinding(),
       initialRoute: AppRouter.getInitialRoute(),
       getPages: AppRouter.pages,
-      title: 'Veegil: Send and Receive money, anywhere...',
+      title: 'Veegil',
     );
   }
 }

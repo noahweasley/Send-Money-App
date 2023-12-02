@@ -8,9 +8,9 @@ class PasswordStrengthBar extends StatelessWidget {
   final Strength strength;
 
   const PasswordStrengthBar({
-    Key? key,
+    super.key,
     required this.strength,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

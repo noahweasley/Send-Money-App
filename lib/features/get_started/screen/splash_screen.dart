@@ -7,7 +7,7 @@ import 'package:veegil/features/auth/screen/login.dart';
 import 'package:veegil/features/get_started/screen/on_board_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
   static const String id = 'splash-screen';
 
   @override

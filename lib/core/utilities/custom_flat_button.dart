@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // TODO: Remove this widget
 class CustomFlatButton extends StatelessWidget {
   const CustomFlatButton(
-      {Key? key,
+      {super.key,
       this.onPressed,
       this.label,
       this.isLoading,
@@ -11,8 +11,7 @@ class CustomFlatButton extends StatelessWidget {
       this.labelStyle,
       this.isWraped = false,
       this.borderRadius = 6.0,
-      this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 10)})
-      : super(key: key);
+      this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 10)});
   // final Function? onPressed;
   final void Function()? onPressed;
   final String? label;

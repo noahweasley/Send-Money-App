@@ -4,7 +4,7 @@ import 'package:veegil/core/database/database.dart';
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/features/auth/screen/login.dart';
 import 'package:veegil/features/auth/screen/sign_up.dart';
-import 'package:veegil/features/auth/shared/bindings/main_binding.dart';
+import 'package:veegil/features/shared/bindings/main_binding.dart';
 import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
 import 'package:veegil/features/get_started/screen/main_screen.dart';
 import 'package:veegil/features/transaction/screens/transactions.dart';

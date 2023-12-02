@@ -8,7 +8,7 @@ import 'package:veegil/core/utilities/services.dart';
 class WithdrawBottomSheet extends StatefulWidget {
   final String phoneNumber;
   final int balance;
-  const WithdrawBottomSheet({Key? key, required this.phoneNumber, required this.balance}) : super(key: key);
+  const WithdrawBottomSheet({super.key, required this.phoneNumber, required this.balance});
 
   @override
   State<WithdrawBottomSheet> createState() => _WithdrawBottomSheetState();

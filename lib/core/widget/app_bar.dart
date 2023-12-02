@@ -16,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? backgroundColor;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     this.leadingIcon,
     this.title,
     this.noTitle = false,
@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.onNavigateUp,
     this.automaticallyImplyLeading = true,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(Dimensions.toolbarHeight);

@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veegil/core/utilities/services.dart';
 
 class OnBoardScreen extends StatefulWidget {
-  const OnBoardScreen({Key? key}) : super(key: key);
+  const OnBoardScreen({super.key});
   static const String id = 'on-board-screen';
 
   @override
@@ -101,10 +101,10 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
 
 class OnBoardPageChange extends StatelessWidget {
   const OnBoardPageChange({
-    Key? key,
+    super.key,
     required this.onBoardImage,
     required this.onBoardText,
-  }) : super(key: key);
+  });
   final Image onBoardImage;
   final Text onBoardText;
 

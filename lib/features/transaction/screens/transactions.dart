@@ -6,7 +6,7 @@ import 'package:veegil/core/utilities/services.dart';
 import 'package:veegil/core/widget/transaction_items.dart';
 
 class TransactionsScreen extends StatefulWidget {
-  const TransactionsScreen({Key? key}) : super(key: key);
+  const TransactionsScreen({super.key});
   static const String id = 'transactions-page';
 
   @override

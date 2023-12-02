@@ -10,7 +10,7 @@ import 'package:veegil/features/get_started/controllers/dashboard_controller.dar
 import 'package:veegil/features/get_started/screen/components/action_card.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -143,8 +143,8 @@ class DashboardScreen extends GetView<DashboardController> {
   Widget _buildActions() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        //   print(constraints.maxWidth.toInt());
         return GridView.count(
+          // TODO: Add responsiveness to grid
           //  crossAxisCount: constraints.maxWidth.toInt() ~/ 200 + 1,
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,

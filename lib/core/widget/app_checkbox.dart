@@ -20,7 +20,7 @@ class AppCheckBox extends StatefulWidget {
   final Widget? child;
 
   const AppCheckBox({
-    Key? key,
+    super.key,
     this.text,
     required this.checked,
     this.onChanged,
@@ -36,7 +36,7 @@ class AppCheckBox extends StatefulWidget {
     this.shouldFillUpSpace = false,
     this.textWidth = 300.0,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   State<AppCheckBox> createState() => _AppCheckBoxState();

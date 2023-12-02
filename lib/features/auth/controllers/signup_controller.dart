@@ -29,12 +29,6 @@ class SignupController extends GetxController {
   bool get isLoading => _isLoading.value;
   set isLoading(bool value) => _isLoading.value = value;
 
-  @override
-  void onInit() {
-    // TODO: Remove onInit() method
-    super.onInit();
-  }
-
   void toggleVisibility() {
     isPasswordHidden = !isPasswordHidden;
   }
@@ -62,6 +56,7 @@ class SignupController extends GetxController {
 
       if (strength != Strength.secure) {
         Notifiers.showAppDialog(
+            type: NotificationType.warning,
             title: 'Password not secure',
             subtitle: 'Password should be at least 8 characters long and include a mix of'
                 ' uppercase and lowercase letters, numbers,'
@@ -87,7 +82,7 @@ class SignupController extends GetxController {
           final timer = Timer(const Duration(seconds: 3), () => Get.offAllNamed(Routes.login));
 
           await Notifiers.showAppDialog(
-            dialogType: NotificationType.message,
+            type: NotificationType.success,
             title: 'Success',
             subtitle: 'You will be navigated to login in 3 seconds',
             buttons: [
@@ -103,6 +98,7 @@ class SignupController extends GetxController {
         }
       } on Exception catch (err) {
         Notifiers.showSnackBar(
+          type: NotificationType.warning,
           message: err.neatMessage,
         );
       } finally {

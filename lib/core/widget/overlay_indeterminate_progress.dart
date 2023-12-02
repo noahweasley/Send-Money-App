@@ -12,13 +12,13 @@ class OverlayIndeterminateProgress extends StatelessWidget {
   final bool isLoading;
 
   const OverlayIndeterminateProgress({
-    Key? key,
+    super.key,
     required this.child,
     this.loadingMessage,
     this.progressColor,
     required this.isLoading,
     this.overlayBackgroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

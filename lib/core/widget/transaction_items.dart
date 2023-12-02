@@ -4,7 +4,7 @@ import 'package:veegil/core/utilities/services.dart';
 
 class TransactionItems extends StatelessWidget {
   final TransactionModel? model;
-  const TransactionItems({Key? key, this.model}) : super(key: key);
+  const TransactionItems({super.key, this.model});
 
   @override
   Widget build(BuildContext context) {

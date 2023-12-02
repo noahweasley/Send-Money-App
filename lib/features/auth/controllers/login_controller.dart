@@ -1,4 +1,3 @@
-// ignore_for_file: unnecessary_overrides
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/repositories/auth_repository.dart';
@@ -22,12 +21,6 @@ class LoginController extends GetxController {
   bool get isLoading => _isLoading.value;
   set isLoading(bool value) => _isLoading.value = value;
 
-  @override
-  void onInit() {
-    // TODO: Remove onInit() method
-    super.onInit();
-  }
-
   Future<void> login() async {
     final formState = formKey.currentState;
 
@@ -46,6 +39,7 @@ class LoginController extends GetxController {
         Get.offAllNamed(Routes.main);
       } on Exception catch (err) {
         Notifiers.showSnackBar(
+          type: NotificationType.warning,
           message: err.neatMessage,
         );
       } finally {

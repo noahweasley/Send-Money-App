@@ -15,7 +15,7 @@ import 'package:veegil/core/widget/password_strength_bar.dart';
 import 'package:veegil/features/auth/controllers/signup_controller.dart';
 
 class SignupScreen extends GetView<SignupController> {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,21 +61,7 @@ class SignupScreen extends GetView<SignupController> {
                                     style: AppStyle.headline5PrimaryDark,
                                   ),
                                   const SizedBox(height: Dimensions.space6),
-                                  Form(
-                                    key: controller.formKey,
-                                    child: Column(
-                                      children: [
-                                        AppTextField(
-                                          title: 'Phone number',
-                                          hintText: 'Enter phone number',
-                                          controller: controller.phoneNumberController,
-                                          validator: PhoneNumberValidator.validate,
-                                        ),
-                                        const SizedBox(height: Dimensions.minSpace),
-                                        _buildRegistrationForm(),
-                                      ],
-                                    ),
-                                  ),
+                                  _buildRegistrationForm(),
                                   const SizedBox(height: Dimensions.space1),
                                   Obx(() {
                                     return AppButton(
@@ -122,47 +108,61 @@ class SignupScreen extends GetView<SignupController> {
   }
 
   Widget _buildRegistrationForm() {
-    return Obx(() {
-      return Column(
+    return Form(
+      key: controller.formKey,
+      child: Column(
         children: [
           AppTextField(
-            title: 'Password',
-            hintText: 'Enter strong password',
-            obscureText: controller.isPasswordHidden,
-            controller: controller.passwordController,
-            onChanged: controller.checkPassword,
-            validator: PasswordValidator.validateStrong,
-            suffixIcon: InkWell(
-              onTap: controller.toggleVisibility,
-              child: Icon(
-                controller.isPasswordHidden ? Icons.visibility_off : Icons.visibility,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(Dimensions.space1),
-            child: Obx(() {
-              return PasswordStrengthBar(
-                strength: controller.strength,
-              );
-            }),
+            title: 'Phone number',
+            hintText: 'Enter phone number',
+            controller: controller.phoneNumberController,
+            validator: PhoneNumberValidator.validate,
           ),
           const SizedBox(height: Dimensions.minSpace),
-          AppTextField(
-            title: 'Confirm Password',
-            hintText: 'Re-enter strong password',
-            obscureText: controller.isPasswordHidden,
-            controller: controller.confirmPasswordController,
-            validator: (val) => EquValidator.validate(controller.passwordController.text, val),
-            suffixIcon: InkWell(
-              onTap: controller.toggleVisibility,
-              child: Icon(
-                controller.isPasswordHidden ? Icons.visibility_off : Icons.visibility,
-              ),
-            ),
-          ),
+          Obx(() {
+            return Column(
+              children: [
+                AppTextField(
+                  title: 'Password',
+                  hintText: 'Enter strong password',
+                  obscureText: controller.isPasswordHidden,
+                  controller: controller.passwordController,
+                  onChanged: controller.checkPassword,
+                  validator: (val) => EquValidator.validate(controller.confirmPasswordController.text, val),
+                  suffixIcon: InkWell(
+                    onTap: controller.toggleVisibility,
+                    child: Icon(
+                      controller.isPasswordHidden ? Icons.visibility_off : Icons.visibility,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(Dimensions.space1),
+                  child: Obx(() {
+                    return PasswordStrengthBar(
+                      strength: controller.strength,
+                    );
+                  }),
+                ),
+                const SizedBox(height: Dimensions.minSpace),
+                AppTextField(
+                  title: 'Confirm Password',
+                  hintText: 'Re-enter strong password',
+                  obscureText: controller.isPasswordHidden,
+                  controller: controller.confirmPasswordController,
+                  validator: (val) => EquValidator.validate(controller.passwordController.text, val),
+                  suffixIcon: InkWell(
+                    onTap: controller.toggleVisibility,
+                    child: Icon(
+                      controller.isPasswordHidden ? Icons.visibility_off : Icons.visibility,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
         ],
-      );
-    });
+      ),
+    );
   }
 }

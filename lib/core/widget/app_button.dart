@@ -21,7 +21,7 @@ class AppButton extends StatelessWidget {
   final bool enabled;
 
   const AppButton({
-    Key? key,
+    super.key,
     required this.text,
     this.onTap,
     this.icon,
@@ -35,7 +35,7 @@ class AppButton extends StatelessWidget {
     this.fontSize = 17,
     this.hasBorder = false,
     this.showLoader = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

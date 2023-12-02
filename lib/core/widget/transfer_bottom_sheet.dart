@@ -8,7 +8,7 @@ import 'package:veegil/core/utilities/services.dart';
 class TransferBottomSheet extends StatefulWidget {
   final String phoneNumber;
   final int balance;
-  const TransferBottomSheet({Key? key, required this.phoneNumber, required this.balance}) : super(key: key);
+  const TransferBottomSheet({super.key, required this.phoneNumber, required this.balance});
 
   @override
   State<TransferBottomSheet> createState() => _TransferBottomSheetState();

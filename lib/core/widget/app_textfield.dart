@@ -35,7 +35,7 @@ class AppTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   const AppTextField({
-    Key? key,
+    super.key,
     this.autofocus,
     this.readOnly,
     this.autovalidateMode,
@@ -63,7 +63,7 @@ class AppTextField extends StatelessWidget {
     this.maxLength,
     this.reserveErrorSpace = false,
     this.inputFormatters,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

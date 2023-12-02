@@ -2,5 +2,5 @@ class Assets {
   // Icons and SVGS
 
   // Images => JPEGS and PNGS
-  static const String appIcon = 'assets/images/Veegil icon.png';
+  static const String appIcon = 'assets/images/veegil-icon.png';
 }

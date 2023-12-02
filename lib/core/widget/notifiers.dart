@@ -7,7 +7,7 @@ import 'package:veegil/core/utilities/extensions/widget_extension.dart';
 import 'package:veegil/core/widget/util.dart';
 
 /// Dialog types
-enum NotificationType { info, warning, message }
+enum NotificationType { info, warning, success }
 
 class _Dialog extends StatelessWidget {
   final String title;
@@ -26,7 +26,7 @@ class _Dialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleStyle = dialogType == NotificationType.warning
         ? AppStyle.titleError
-        : (dialogType == NotificationType.message ? AppStyle.titleGreen : AppStyle.titlePrimaryDark);
+        : (dialogType == NotificationType.success ? AppStyle.titleGreen : AppStyle.titlePrimaryDark);
 
     return Dialog(
       backgroundColor: AppColor.background,
@@ -101,7 +101,7 @@ class DialogButton {
 class Notifiers {
   /// show custom pop-up dialog
   static Future<T?> showAppDialog<T>({
-    NotificationType? dialogType,
+    NotificationType? type,
     bool barrierDismissible = false,
     required String title,
     required String subtitle,
@@ -109,7 +109,7 @@ class Notifiers {
   }) async {
     return Get.dialog(
       _Dialog(
-        dialogType: dialogType,
+        dialogType: type,
         buttons: buttons,
         title: title,
         subtitle: subtitle,
@@ -119,14 +119,15 @@ class Notifiers {
 
   static SnackbarController showSnackBar({
     required String message,
-    NotificationType? type = NotificationType.message,
+    NotificationType? type = NotificationType.info,
   }) {
     final color = type == NotificationType.warning
         ? AppColor.red
-        : (type == NotificationType.message ? AppColor.green : AppColor.primaryDark);
+        : (type == NotificationType.success ? AppColor.green : AppColor.primaryDark);
 
     return Get.showSnackbar(
       GetSnackBar(
+        duration: const Duration(seconds: 3),
         messageText: Text(
           message,
           style: AppStyle.titleWhite,
