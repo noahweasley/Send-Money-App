@@ -22,8 +22,37 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    - avoid_print
+    - prefer_single_quotes
+    - avoid_unused_constructor_parameters
+    - await_only_futures
+    - directives_ordering
+    - empty_constructor_bodies
+    - empty_statements
+    - hash_and_equals
+    - implementation_imports
+    - null_closures
+    - package_api_docs
+    - slash_for_doc_comments
+    - test_types_in_equals
+    - throw_in_finally
+    - type_init_formals
+    - always_use_package_imports
+    - cancel_subscriptions
 
+analyzer:
+  exclude: [build/**]
+  language:
+    # strict-casts: true
+    # strict-raw-types: true
+    # strict-inference: true
+
+strong-mode:
+  implicit-casts: false
+  implicit-dynamic: false
+
+errors:
+  include_file_not_found: error
+  dead_code: warning
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

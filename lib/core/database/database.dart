@@ -1,5 +1,6 @@
-import './adapters/adapters.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+part 'package:veegil/core/database/adapters/adapters.dart';
 
 class DatabaseService {
   static final instance = DatabaseService._();
@@ -13,7 +14,7 @@ class DatabaseService {
 
   Future<void> initialize() async {
     await Hive.initFlutter();
-    for (var adapter in AdapterList.list) {
+    for (var adapter in _AdapterList.list) {
       Hive.registerAdapter(adapter);
     }
     _box = await Hive.openBox(boxName);

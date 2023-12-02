@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.veegil.veebank">
+    package="com.app.veegil">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="Veegil Bank App"
+        android:label="Veegil"
         android:name="${applicationName}"
-        android:icon="@mipmap/icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"

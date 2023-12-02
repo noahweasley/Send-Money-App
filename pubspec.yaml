@@ -1,4 +1,4 @@
-name: veebank
+name: veegil
 description: Veegil Media Banking App.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -24,7 +24,6 @@ dependencies:
   flutter_svg: ^1.1.6
   intl: ^0.18.1
   smooth_page_indicator: ^1.0.0+2
-  dotted_border: ^2.0.0+3
   carousel_slider: ^4.2.1
   dio: ^5.3.1
   pretty_dio_logger: ^1.3.1
@@ -74,8 +73,8 @@ flutter_native_splash:
   # of your splash screen to a solid color.  Use background_image to set the background of your
   # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
   # size of the app. Only one parameter can be used, color and background_image cannot both be set.
-  # color: "#42a5f5"
-  background_image: "assets/pngs/splash.png"
+  color: "#ffffff"
+  # background_image: "assets/pngs/splash.png"
 
   # Optional parameters are listed below.  To enable a parameter, uncomment the line by removing
   # the leading # character.
@@ -87,11 +86,11 @@ flutter_native_splash:
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
   # see the Android 12 section below.
-  branding: assets/pngs/brand-image.png
+  branding: assets/images/Veegil icon.png
 
   # To position the branding image at the bottom of the screen you can use bottom, bottomRight,
   # and bottomLeft. The default values is bottom if not specified or specified something else.
-  branding_mode: bottom
+  branding_mode: center
 
   # The color_dark, background_image_dark, image_dark, branding_dark are parameters that set the background
   # and image when the device is in dark mode. If they are not specified, the app will use the
@@ -205,11 +204,11 @@ flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/launch_icons/launch_icon.png"
+  image_path: "assets/images/Veegil icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/launch_icons/launch_icon.png"
+    image_path: "assets/images/Veegil icon.png"
     background_color: "#FFF2CD14"
     theme_color: "#FFF2CD14"
   # windows:
@@ -219,7 +218,7 @@ flutter_launcher_icons:
   # macos:
   #   generate: true
   #   image_path: "path/to/image.png"
-# The following section is specific to Flutter packages.
+  # The following section is specific to Flutter packages.
 
 flutter:
   uses-material-design: true
@@ -230,25 +229,8 @@ flutter:
         - asset: assets/fonts/OpenSans-Regular.ttf
         - asset: assets/fonts/OpenSans-Italic.ttf
           style: italic
-    - family: Signatra
-      fonts:
-        - asset: assets/fonts/Signatra.ttf
-    - family: Anton
-      fonts:
-        - asset: assets/fonts/Anton-Regular.ttf
-    - family: Lato
-      fonts:
-        - asset: assets/fonts/Lato-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Lato-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/goldcard.jpeg
-    - assets/images/globe.png
-    - assets/images/1.png
-    - assets/images/2.png
-    - assets/images/3.png
-    - assets/images/4.png
-    - assets/images/5.png
-    - assets/images/6.png
+    - assets/images/
+    - assets/icons/

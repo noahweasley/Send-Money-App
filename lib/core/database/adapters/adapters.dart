@@ -1,6 +1,6 @@
-import 'package:hive_flutter/hive_flutter.dart';
+part of 'package:veegil/core/database/database.dart';
 
-class AdapterList {
+class _AdapterList {
   // add all hive adapters here
   static List<TypeAdapter> get list => [];
 }
