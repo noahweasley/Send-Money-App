@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veegil/core/utilities/services.dart';
-import 'package:veegil/features/auth/screen/login.dart';
+import 'package:veegil/features/authentication/screen/login.dart';
 import 'package:veegil/features/get_started/screen/on_board_screen.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:veegil/core/database/database.dart';
 
 /// a simple class that handles every app initializations
@@ -13,6 +12,5 @@ class AppInitialization {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    FlutterNativeSplash.remove();
   }
 }

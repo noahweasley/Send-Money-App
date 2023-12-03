@@ -5,10 +5,10 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/utilities/size_config.dart';
 import 'package:veegil/features/get_started/controllers/main_screen_controller.dart';
 import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
-import 'package:veegil/features/transaction_history/screens/transactions.dart';
+import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
 
-class MainScreen extends GetView<MainScreenController> {
-  const MainScreen({super.key});
+class LandingPageScreen extends GetView<MainScreenController> {
+  const LandingPageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,7 @@ class MainScreen extends GetView<MainScreenController> {
                 index: controller.index,
                 children: const [
                   DashboardScreen(),
-                  TransactionsScreen(),
-                  TransactionsScreen(),
+                  TransactionHistoryScreen(),
                 ],
               );
             }),
@@ -51,11 +50,7 @@ class MainScreen extends GetView<MainScreenController> {
             BottomNavigationBarItem(
               icon: Icon(Icons.payment_outlined),
               label: 'History',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance_outlined),
-              label: 'Accounts',
-            ),
+            )
           ],
         );
       }),

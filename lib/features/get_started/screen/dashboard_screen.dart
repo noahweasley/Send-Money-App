@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
+import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
 import 'package:veegil/core/widget/annotated_status_bar.dart';
 import 'package:veegil/core/widget/util.dart';
@@ -22,6 +23,7 @@ class DashboardScreen extends GetView<DashboardController> {
             children: [
               AnnotatedStatusBar(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildAccountInfo(),
                     _buildActions(),
@@ -71,7 +73,7 @@ class DashboardScreen extends GetView<DashboardController> {
                     value: controller.balance,
                   ),
                   const Spacer(),
-                  _buildTopupButton(),
+                  _buildAddMoneyButton(),
                 ],
               ),
             ],
@@ -119,9 +121,9 @@ class DashboardScreen extends GetView<DashboardController> {
     );
   }
 
-  Widget _buildTopupButton() {
+  Widget _buildAddMoneyButton() {
     return ElevatedButton.icon(
-      onPressed: () {},
+      onPressed: () => Get.toNamed(Routes.topUp),
       icon: const Icon(
         Icons.add_outlined,
         color: AppColor.dark,
@@ -134,7 +136,7 @@ class DashboardScreen extends GetView<DashboardController> {
         side: const BorderSide(color: AppColor.primaryDark),
       ),
       label: Text(
-        'Topup',
+        'Add money',
         style: AppStyle.body1PrimaryDark,
       ),
     );
@@ -151,7 +153,7 @@ class DashboardScreen extends GetView<DashboardController> {
           shrinkWrap: true,
           children: [
             ActionCard(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.topUp),
               color: AppColor.red,
               iconData: Icons.savings_outlined,
               title: 'Top up',
@@ -178,22 +180,27 @@ class DashboardScreen extends GetView<DashboardController> {
   }
 
   Widget _buildRecentTransactions() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Latest Transactions', style: AppStyle.body1Primary),
-        const SizedBox(height: Dimensions.space2),
-        //   ListView.separated(
-        //     shrinkWrap: true,
-        //     itemCount: controller.transactions.length,
-        //     separatorBuilder: (context, index) {
-        //       return const SizedBox(height: Dimensions.space1);
-        //     },
-        //     itemBuilder: (context, index) {
-        //       return TransactionListItem(item: controller.transactions[index]);
-        //     },
-        //   ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(Dimensions.space2),
+      child: Column(
+        children: [
+          Text(
+            'Latest Transactions',
+            style: AppStyle.body1Primary,
+          ),
+          const SizedBox(height: Dimensions.space2),
+          //   ListView.separated(
+          //     shrinkWrap: true,
+          //     itemCount: controller.transactions.length,
+          //     separatorBuilder: (context, index) {
+          //       return const SizedBox(height: Dimensions.space1);
+          //     },
+          //     itemBuilder: (context, index) {
+          //       return TransactionListItem(item: controller.transactions[index]);
+          //     },
+          //   ),
+        ],
+      ),
     );
   }
 }

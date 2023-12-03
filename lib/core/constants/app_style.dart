@@ -44,7 +44,7 @@ extension StyleExtension on TextStyle {
 class AppStyle {
   /// Base text style
   static const TextStyle baseTextStyle = TextStyle(
-    fontFamily: AppFonts.openSans,
+    fontFamily: AppFonts.lato,
     color: Colors.black,
   );
 

@@ -5,11 +5,27 @@ import 'package:veegil/core/database/database.dart';
 class SessionManager {
   static final db = DatabaseService.instance;
 
+  static Future<void> writeUserAccountNumber(String accountNumber) async {
+    await db.setData(SessionConstants.userAccountNumber, accountNumber);
+  }
+
+  static String? readUserAccountNumber() {
+    return db.getData(SessionConstants.userAccountNumber, null);
+  }
+
+  static Future<void> writeUserName(String accountNumber) async {
+    await db.setData(SessionConstants.userName, accountNumber);
+  }
+
+  static String? readUserName() {
+    return db.getData(SessionConstants.userName, null);
+  }
+
   static String? readAuthorizationToken() {
     return db.getData(SessionConstants.userAccessToken, null);
   }
 
-  static writeAuthorizationToken(String token) async {
+  static Future<void> writeAuthorizationToken(String token) async {
     await db.setData(SessionConstants.userAccessToken, token);
   }
 

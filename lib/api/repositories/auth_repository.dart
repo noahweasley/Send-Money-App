@@ -35,6 +35,7 @@ class AuthRepository {
     }
   }
 
+  // Register user
   Future<SignupResponse> signupAsync(SignupRequest request) async {
     try {
       final response = await apiConnectionHelper.postDataAsync(

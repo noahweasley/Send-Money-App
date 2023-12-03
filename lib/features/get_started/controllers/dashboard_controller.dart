@@ -1,12 +1,10 @@
 import 'package:get/get.dart';
+import 'package:veegil/api/services/resources/managers/session_manager.dart';
 
 class DashboardController extends GetxController {
   String saving = 'Total Savings';
 
-  final _accountNumber = '7065478947'.obs;
-
-  var transactions;
-
+  final _accountNumber = 'User'.obs;
   String get accountNumber => _accountNumber.value;
   set accountNumber(String value) => _accountNumber.value = value;
 
@@ -14,7 +12,7 @@ class DashboardController extends GetxController {
   String get balance => _balance.value;
   set balance(String value) => _balance.value = value;
 
-  final _name = 'Noah'.obs;
+  final _name = ''.obs;
   String get name => _name.value;
   set name(String value) => _name.value = value;
 
@@ -25,6 +23,15 @@ class DashboardController extends GetxController {
   final _phoneNumber = ''.obs;
   String get phoneNumber => _phoneNumber.value;
   set phoneNumber(String value) => _phoneNumber.value = value;
+
+  var transactions;
+
+  @override
+  void onInit() {
+    super.onInit();
+    accountNumber = SessionManager.readUserAccountNumber() ?? 'NIL';
+    name = SessionManager.readUserName() ?? 'User';
+  }
 
   void refreshScreen() {}
 }
