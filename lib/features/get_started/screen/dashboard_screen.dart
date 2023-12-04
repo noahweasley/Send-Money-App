@@ -17,21 +17,17 @@ class DashboardScreen extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.background,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              AnnotatedStatusBar(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildAccountInfo(),
-                    _buildActions(),
-                    _buildRecentTransactions(),
-                  ],
-                ),
-              ),
-            ],
+      body: AnnotatedStatusBar(
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildAccountInfo(),
+                _buildActions(),
+                _buildRecentTransactions(),
+              ],
+            ),
           ),
         ),
       ),
@@ -153,7 +149,7 @@ class DashboardScreen extends GetView<DashboardController> {
           shrinkWrap: true,
           children: [
             ActionCard(
-              onTap: () => Get.toNamed(Routes.topUp),
+              onTap: controller.topup,
               color: AppColor.red,
               iconData: Icons.savings_outlined,
               title: 'Top up',

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
+import 'package:veegil/core/navigation/app_routes.dart';
+import 'package:veegil/core/widget/fund_options_bottom_sheet.dart';
 
 class DashboardController extends GetxController {
   String saving = 'Total Savings';
@@ -34,4 +36,13 @@ class DashboardController extends GetxController {
   }
 
   void refreshScreen() {}
+
+  Future<void> topup() async {
+    final accountNumber = SessionManager.readUserAccountNumber() ?? 'NIL';
+    await showFundOptionsBottomSheet(
+      bankName: 'Veegil Bank',
+      accountNumber: accountNumber,
+      onOtherOptionsTap: () => Get.toNamed(Routes.topUp),
+    );
+  }
 }
