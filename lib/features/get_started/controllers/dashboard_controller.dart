@@ -39,10 +39,16 @@ class DashboardController extends GetxController {
 
   Future<void> topup() async {
     final accountNumber = SessionManager.readUserAccountNumber() ?? 'NIL';
-    await showFundOptionsBottomSheet(
+    await FundOptionsBottomSheet.show(
       bankName: 'Veegil Bank',
       accountNumber: accountNumber,
       onOtherOptionsTap: () => Get.toNamed(Routes.topUp),
     );
+  }
+
+  void withdraw() {
+  }
+
+  void transfer() {
   }
 }

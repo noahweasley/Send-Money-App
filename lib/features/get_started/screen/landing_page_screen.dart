@@ -3,11 +3,11 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/utilities/size_config.dart';
-import 'package:veegil/features/get_started/controllers/main_screen_controller.dart';
+import 'package:veegil/features/get_started/controllers/landing_page_controller.dart';
 import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
 import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
 
-class LandingPageScreen extends GetView<MainScreenController> {
+class LandingPageScreen extends GetView<LandingPageController> {
   const LandingPageScreen({super.key});
 
   @override

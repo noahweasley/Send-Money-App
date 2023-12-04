@@ -38,18 +38,25 @@ class _Dialog extends StatelessWidget {
         children: [
           Column(
             children: [
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: titleStyle,
-              ).paddingTop(Dimensions.space2),
-              Text(
-                subtitle,
-                textAlign: TextAlign.center,
-                style: AppStyle.body2PrimaryDark,
-              ).paddingOnly(
-                bottom: Dimensions.space2,
-                top: Dimensions.space1,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Dimensions.space1),
+                child: Column(
+                  children: [
+                    Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: titleStyle.bold,
+                    ).paddingTop(Dimensions.space2),
+                    Text(
+                      subtitle,
+                      textAlign: TextAlign.center,
+                      style: AppStyle.body2PrimaryDark,
+                    ).paddingOnly(
+                      bottom: Dimensions.space2,
+                      top: Dimensions.space1,
+                    ),
+                  ],
+                ),
               ),
               Visibility(
                 visible: buttons?.isNotEmpty ?? false,

@@ -5,10 +5,10 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
+import 'package:veegil/core/widget/action_card.dart';
 import 'package:veegil/core/widget/annotated_status_bar.dart';
 import 'package:veegil/core/widget/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
-import 'package:veegil/features/get_started/screen/components/action_card.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
   const DashboardScreen({super.key});
@@ -140,7 +140,7 @@ class DashboardScreen extends GetView<DashboardController> {
 
   Widget _buildActions() {
     return LayoutBuilder(
-      builder: (context, constraints) {
+      builder: (_, constraints) {
         return GridView.count(
           // TODO: Add responsiveness to grid
           //  crossAxisCount: constraints.maxWidth.toInt() ~/ 200 + 1,
@@ -156,14 +156,14 @@ class DashboardScreen extends GetView<DashboardController> {
               subtitle: 'Add money to wallet',
             ),
             ActionCard(
-              onTap: () {},
+              onTap: controller.withdraw,
               color: AppColor.primaryMain,
               iconData: Icons.payment_outlined,
               title: 'Withdraw',
               subtitle: 'Withdraw from wallet',
             ),
             ActionCard(
-              onTap: () {},
+              onTap: controller.transfer,
               color: AppColor.green,
               iconData: Icons.paid_outlined,
               title: 'Transfer',

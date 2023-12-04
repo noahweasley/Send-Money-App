@@ -35,8 +35,15 @@ class TopupWalletController extends GetxController {
         final response = await transactionRepository.fundWalletAsync(int.parse(amountController.text));
 
         Notifiers.showAppDialog(
+          type: NotificationType.success,
           title: 'Successful',
           subtitle: 'You have successfully funded your wallet with ${response.data.sent}',
+          buttons: [
+            DialogButton(
+              label: 'OK',
+              onTap: Get.back,
+            ),
+          ],
         );
       } on Exception catch (err) {
         Notifiers.showSnackBar(
