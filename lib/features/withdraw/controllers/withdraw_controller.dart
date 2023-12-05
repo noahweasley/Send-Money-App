@@ -16,7 +16,7 @@ class WithdrawController extends GetxController {
   bool get isProcessing => _isProcessing.value;
   set isProcessing(bool value) => _isProcessing.value = value;
 
-  final _balance = '...loading'.obs;
+  final _balance = ''.obs;
   String get balance => _balance.value;
   set balance(String value) => _balance.value = value;
 
@@ -39,9 +39,9 @@ class WithdrawController extends GetxController {
 
       try {
         final response = await transactionRepository.withdrawMoneyAsync(int.parse(amountController.text));
-        final double bal = SessionManager.readUserAccountBalance();
-
-        balance = CurrencyFormat.ngnFormatMoney(bal - response.data.withdrawal);
+        final double bal = SessionManager.readUserAccountBalance() - response.data.withdrawal;
+        balance = CurrencyFormat.ngnFormatMoney(bal);
+        await SessionManager.writeUserAccountBalance(bal);
 
         final withdrawal = CurrencyFormat.ngnFormatMoney(response.data.withdrawal);
         Notifiers.showAppDialog(
