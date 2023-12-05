@@ -60,12 +60,20 @@ class DashboardController extends GetxController {
     await FundOptionsBottomSheet.show(
       bankName: 'Veegil Bank',
       accountNumber: accountNumber,
-      onOtherOptionsTap: () => Get.toNamed(Routes.topUp),
+      onOtherOptionsTap: () async {
+        final results = await Get.toNamed(Routes.topUp);
+        balance = results as String;
+      },
     );
   }
 
   Future<void> navigateToWithdraw() async {
     final results = await Get.toNamed(Routes.withdraw);
+    balance = results as String;
+  }
+
+  Future<void> navigateToTransfer() async {
+    final results = await Get.toNamed(Routes.transfer);
     balance = results as String;
   }
 
@@ -133,6 +141,4 @@ class DashboardController extends GetxController {
       isTransactionLoading = false;
     }
   }
-
-  void transfer() {}
 }

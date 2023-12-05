@@ -8,6 +8,7 @@ import 'package:veegil/features/get_started/screen/landing_page_screen.dart';
 import 'package:veegil/features/shared/bindings/main_binding.dart';
 import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
 import 'package:veegil/features/transfer/screens/top_up_waller_screen.dart';
+import 'package:veegil/features/transfer/screens/transfer_screen.dart';
 import 'package:veegil/features/withdraw/screens/withdraw_screen.dart';
 
 class AppRouter {
@@ -53,6 +54,12 @@ class AppRouter {
       binding: MainBinding(),
       transition: Transition.leftToRight,
       page: () => const WithdrawScreen(),
+    ),
+    GetPage(
+      name: Routes.transfer,
+      binding: MainBinding(),
+      transition: Transition.leftToRight,
+      page: () => const TransferScreen(),
     ),
   ];
 

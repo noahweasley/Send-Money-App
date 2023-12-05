@@ -26,6 +26,10 @@ class TopupWalletController extends GetxController {
     walletBalance = 'Wallet balance: ${CurrencyFormat.ngnFormatMoney(balance)}';
   }
 
+  Future<void> giveResults() async {
+    Get.back(result: walletBalance);
+  }
+
   void topupWallet() async {
     final formState = formKey.currentState;
 

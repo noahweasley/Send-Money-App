@@ -10,10 +10,10 @@ import 'package:veegil/core/widget/app_button.dart';
 import 'package:veegil/core/widget/app_icon.dart';
 import 'package:veegil/core/widget/app_textfield.dart';
 import 'package:veegil/core/widget/overlay_indeterminate_progress.dart';
-import 'package:veegil/features/transfer/controllers/top_up_wallet_controller.dart';
+import 'package:veegil/features/transfer/controllers/transfer_controller.dart';
 
-class TopupWalletScreen extends GetView<TopupWalletController> {
-  const TopupWalletScreen({super.key});
+class TransferScreen extends GetView<TransferController> {
+  const TransferScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +28,15 @@ class TopupWalletScreen extends GetView<TopupWalletController> {
         child: Scaffold(
           backgroundColor: AppColor.background,
           appBar: CustomAppBar(
-            onNavigateUp: controller.giveResults,
             title: Text(
-              'Top up',
+              'Transfer',
               style: AppStyle.title,
             ),
+            onNavigateUp: controller.giveResults,
           ),
           body: Obx(() {
             return OverlayIndeterminateProgress(
-              isLoading: controller.isLoading,
+              isLoading: controller.isProcessing,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -56,18 +56,29 @@ class TopupWalletScreen extends GetView<TopupWalletController> {
                             child: AppLogo(),
                           ),
                           Text(
-                            'Top up your Veegil Bank Account',
+                            'Effortless Cash Transfers with Veegil, try it!',
                             textAlign: TextAlign.center,
                             style: AppStyle.headline5PrimaryDark,
                           ),
                           const SizedBox(height: Dimensions.space6),
                           Form(
                             key: controller.formKey,
-                            child: AppTextField(
-                              controller: controller.amountController,
-                              title: 'Enter amount',
-                              hintText: 'Type amount here',
-                              validator: EmptyStringValidator.validate,
+                            child: Column(
+                              children: [
+                                AppTextField(
+                                  controller: controller.phoneNumberTextController,
+                                  title: 'Account Number',
+                                  hintText: 'Enter Account number / Phone number',
+                                  validator: PhoneNumberValidator.validate,
+                                ),
+                                const SizedBox(height: Dimensions.minSpace),
+                                AppTextField(
+                                  controller: controller.amountController,
+                                  title: 'Amount',
+                                  hintText: 'Enter amount',
+                                  validator: EmptyStringValidator.validate,
+                                ),
+                              ],
                             ),
                           ),
                           const SizedBox(height: Dimensions.minSpace),
@@ -76,15 +87,15 @@ class TopupWalletScreen extends GetView<TopupWalletController> {
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                controller.walletBalance,
+                                controller.balance,
                                 style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
                               ),
                             ),
                           ),
                           const SizedBox(height: Dimensions.space2),
                           AppButton(
-                            text: 'Top up',
-                            onTap: controller.topupWallet,
+                            text: 'Send',
+                            onTap: controller.transfer,
                           ),
                         ],
                       ),

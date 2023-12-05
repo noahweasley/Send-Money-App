@@ -16,29 +16,35 @@ class TransactionRepository {
   final apiConnectionHelper = ApiConnectionHelper();
 
   /// Transfer funds from one user to another
-  Future<TransferResponse> transferFundsAsync(TransferRequest transferRequest) async {
-    final withdrawRequest = WithdrawRequest(
-      amount: transferRequest.amount,
-      phoneNumber: transferRequest.phoneNumber,
-    );
+  Future<WithdrawResponse> transferFundsAsync(TransferRequest transferRequest) async {
+    final phoneNumber = SessionManager.readUserAccountNumber();
+
+    if (phoneNumber == null) {
+      throw Exception('Phone number wasn\'t saved, please re-login');
+    }
 
     try {
-      final withdrawResponse = await apiConnectionHelper.postDataAsync(
-        path: Endpoint.withdraw,
-        requestData: withdrawRequest,
-      );
-
-      if (withdrawResponse.statusCode != HttpStatusCodes.ok) {
-        throw Exception(withdrawResponse.data['message']);
-      }
-
       final transferResponse = await apiConnectionHelper.postDataAsync(
         path: Endpoint.transfer,
         requestData: transferRequest,
       );
 
-      if (transferResponse.statusCode == HttpStatusCodes.ok) {
-        return TransferResponse.fromJson(transferResponse.data);
+      if (transferResponse.statusCode != HttpStatusCodes.ok) {
+        throw Exception(transferResponse.data['message']);
+      }
+
+      final withdrawRequest = WithdrawRequest(
+        amount: transferRequest.amount,
+        phoneNumber: phoneNumber,
+      );
+
+      final withdrawResponse = await apiConnectionHelper.postDataAsync(
+        path: Endpoint.withdraw,
+        requestData: withdrawRequest,
+      );
+
+      if (withdrawResponse.statusCode == HttpStatusCodes.ok) {
+        return WithdrawResponse.fromJson(withdrawResponse.data);
       } else {
         throw Exception(transferResponse.data['message']);
       }

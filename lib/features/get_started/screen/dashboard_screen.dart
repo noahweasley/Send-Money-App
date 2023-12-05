@@ -182,7 +182,7 @@ class DashboardScreen extends GetView<DashboardController> {
             Obx(() {
               return ActionCard(
                 enabled: !controller.isUserDetailsLoading,
-                onTap: controller.transfer,
+                onTap: controller.navigateToTransfer,
                 color: AppColor.green,
                 iconData: Icons.paid_outlined,
                 title: 'Transfer',
