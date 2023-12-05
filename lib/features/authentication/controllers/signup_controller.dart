@@ -83,7 +83,7 @@ class SignupController extends GetxController {
 
           await Notifiers.showAppDialog(
             type: NotificationType.success,
-            title: 'Success',
+            title: 'Sucessful',
             subtitle: 'You will be navigated to login in 3 seconds',
             buttons: [
               DialogButton(

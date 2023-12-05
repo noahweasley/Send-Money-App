@@ -5,4 +5,5 @@ class SessionConstants {
   static const String isUserLoggedIn = 'is_user_logged_in';
   static const String userAccountNumber = 'user_account_number';
   static const String userName = 'user_name';
+  static const String userAccountBalance = 'user_account_balance';
 }

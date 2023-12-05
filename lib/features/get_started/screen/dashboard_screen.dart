@@ -1,5 +1,8 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
@@ -7,6 +10,7 @@ import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
 import 'package:veegil/core/widget/action_card.dart';
 import 'package:veegil/core/widget/annotated_status_bar.dart';
+import 'package:veegil/core/widget/transaction_list_item.dart';
 import 'package:veegil/core/widget/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
 
@@ -20,14 +24,16 @@ class DashboardScreen extends GetView<DashboardController> {
       body: AnnotatedStatusBar(
         child: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildAccountInfo(),
-                _buildActions(),
-                _buildRecentTransactions(),
-              ],
-            ),
+            child: Obx(() {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildAccountInfo(),
+                  _buildActions(),
+                  _buildRecentTransactions(),
+                ],
+              );
+            }),
           ),
         ),
       ),
@@ -54,20 +60,24 @@ class DashboardScreen extends GetView<DashboardController> {
                 children: [
                   _buildGreeting(),
                   const Spacer(),
-                  _buildSavingsInfo(
-                    alignment: CrossAxisAlignment.end,
-                    reason: 'Account No.',
-                    value: controller.accountNumber,
-                  ),
+                  Obx(() {
+                    return _buildSavingsInfo(
+                      alignment: CrossAxisAlignment.end,
+                      reason: 'Account No.',
+                      value: controller.accountNumber,
+                    );
+                  }),
                 ],
               ),
               const Spacer(),
               Row(
                 children: [
-                  _buildSavingsInfo(
-                    reason: 'Total Savings',
-                    value: controller.balance,
-                  ),
+                  Obx(() {
+                    return _buildSavingsInfo(
+                      reason: 'Total Savings',
+                      value: controller.balance,
+                    );
+                  }),
                   const Spacer(),
                   _buildAddMoneyButton(),
                 ],
@@ -118,57 +128,67 @@ class DashboardScreen extends GetView<DashboardController> {
   }
 
   Widget _buildAddMoneyButton() {
-    return ElevatedButton.icon(
-      onPressed: () => Get.toNamed(Routes.topUp),
-      icon: const Icon(
-        Icons.add_outlined,
-        color: AppColor.dark,
-        size: Dimensions.iconSize,
-      ),
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        backgroundColor: AppColor.background,
-        minimumSize: const Size(130, 40),
-        side: const BorderSide(color: AppColor.primaryDark),
-      ),
-      label: Text(
-        'Add money',
-        style: AppStyle.body1PrimaryDark,
-      ),
-    );
+    return Obx(() {
+      return ElevatedButton.icon(
+        onPressed: controller.isUserDetailsLoading ? null : () => Get.toNamed(Routes.topUp),
+        icon: const Icon(
+          Icons.add_outlined,
+          color: AppColor.dark,
+          size: Dimensions.iconSize,
+        ),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          backgroundColor: AppColor.background,
+          disabledBackgroundColor: AppColor.background.withOpacity(0.6),
+          minimumSize: const Size(130, 40),
+          side: const BorderSide(color: AppColor.primaryDark),
+        ),
+        label: Text(
+          'Add money',
+          style: AppStyle.body1PrimaryDark,
+        ),
+      );
+    });
   }
 
   Widget _buildActions() {
     return LayoutBuilder(
       builder: (_, constraints) {
         return GridView.count(
-          // TODO: Add responsiveness to grid
-          //  crossAxisCount: constraints.maxWidth.toInt() ~/ 200 + 1,
+          crossAxisCount: math.max(2, constraints.maxWidth.toInt() ~/ 200),
           physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
           shrinkWrap: true,
           children: [
-            ActionCard(
-              onTap: controller.topup,
-              color: AppColor.red,
-              iconData: Icons.savings_outlined,
-              title: 'Top up',
-              subtitle: 'Add money to wallet',
-            ),
-            ActionCard(
-              onTap: controller.withdraw,
-              color: AppColor.primaryMain,
-              iconData: Icons.payment_outlined,
-              title: 'Withdraw',
-              subtitle: 'Withdraw from wallet',
-            ),
-            ActionCard(
-              onTap: controller.transfer,
-              color: AppColor.green,
-              iconData: Icons.paid_outlined,
-              title: 'Transfer',
-              subtitle: 'Send money to loved ones',
-            ),
+            Obx(() {
+              return ActionCard(
+                enabled: !controller.isUserDetailsLoading,
+                onTap: controller.topup,
+                color: AppColor.red,
+                iconData: Icons.savings_outlined,
+                title: 'Top up',
+                subtitle: 'Add money to wallet',
+              );
+            }),
+            Obx(() {
+              return ActionCard(
+                enabled: !controller.isUserDetailsLoading,
+                onTap: controller.navigateToWithdraw,
+                color: AppColor.primaryMain,
+                iconData: Icons.payment_outlined,
+                title: 'Withdraw',
+                subtitle: 'Withdraw from wallet',
+              );
+            }),
+            Obx(() {
+              return ActionCard(
+                enabled: !controller.isUserDetailsLoading,
+                onTap: controller.transfer,
+                color: AppColor.green,
+                iconData: Icons.paid_outlined,
+                title: 'Transfer',
+                subtitle: 'Send money to loved ones',
+              );
+            }),
           ],
         );
       },
@@ -179,22 +199,24 @@ class DashboardScreen extends GetView<DashboardController> {
     return Padding(
       padding: const EdgeInsets.all(Dimensions.space2),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Latest Transactions',
             style: AppStyle.body1Primary,
           ),
           const SizedBox(height: Dimensions.space2),
-          //   ListView.separated(
-          //     shrinkWrap: true,
-          //     itemCount: controller.transactions.length,
-          //     separatorBuilder: (context, index) {
-          //       return const SizedBox(height: Dimensions.space1);
-          //     },
-          //     itemBuilder: (context, index) {
-          //       return TransactionListItem(item: controller.transactions[index]);
-          //     },
-          //   ),
+          ListView.separated(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(Dimensions.space2),
+            itemCount: controller.transactions.length,
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: Dimensions.space1);
+            },
+            itemBuilder: (context, index) {
+              return TransactionListItem(data: controller.transactions[index]);
+            },
+          ),
         ],
       ),
     );

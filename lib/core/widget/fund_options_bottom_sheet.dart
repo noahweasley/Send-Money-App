@@ -184,6 +184,7 @@ class _FundOptionsBottomSheet extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: Dimensions.space2),
             ],
           ),
         ],

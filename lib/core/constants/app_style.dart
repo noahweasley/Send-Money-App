@@ -464,6 +464,14 @@ class AppStyle {
     color: AppColor.red,
   );
 
+  /// Text style for subtitle1 with green color.
+  ///
+  /// Inherits properties from [subtitle1].
+  /// Color: AppColor.white
+  static TextStyle subtitle1White = subtitle1.copyWith(
+    color: AppColor.white,
+  );
+
   /// Text style for subtitle2.
   static TextStyle subtitle2 = baseTextStyle.copyWith(
     fontSize: 14.0.sp,

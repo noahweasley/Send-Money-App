@@ -8,7 +8,7 @@ import 'package:veegil/core/utilities/extensions/error_extension.dart';
 import 'package:veegil/core/widget/notifiers.dart';
 
 class LoginController extends GetxController {
-  final userRepository = AuthRepository();
+  final authRepository = AuthRepository();
   final formKey = GlobalKey<FormState>();
   final phoneNumberTextController = TextEditingController();
   final passwordTextController = TextEditingController();
@@ -34,10 +34,11 @@ class LoginController extends GetxController {
       );
 
       try {
-        final response = await userRepository.loginAsync(request);
-        Future.wait([
+        final response = await authRepository.loginAsync(request);
+        await Future.wait([
           SessionManager.writeAuthorizationToken(response.data.token),
           SessionManager.writeUserAccountNumber(phoneNumberTextController.text),
+          SessionManager.writeIsUserLoggedIn(isRememberMe),
         ]);
 
         Get.offAllNamed(Routes.landingPage);

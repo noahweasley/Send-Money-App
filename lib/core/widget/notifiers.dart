@@ -137,7 +137,7 @@ class Notifiers {
         duration: const Duration(seconds: 3),
         messageText: Text(
           message,
-          style: AppStyle.titleWhite,
+          style: AppStyle.subtitle1White,
         ),
         backgroundColor: color,
       ),

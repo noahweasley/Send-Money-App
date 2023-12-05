@@ -6,7 +6,7 @@ class SessionManager {
   static final db = DatabaseService.instance;
 
   static Future<void> writeUserAccountNumber(String accountNumber) async {
-    await db.setData(SessionConstants.userAccountNumber, accountNumber);
+    return await db.setData(SessionConstants.userAccountNumber, accountNumber);
   }
 
   static String? readUserAccountNumber() {
@@ -14,7 +14,7 @@ class SessionManager {
   }
 
   static Future<void> writeUserName(String accountNumber) async {
-    await db.setData(SessionConstants.userName, accountNumber);
+    return await db.setData(SessionConstants.userName, accountNumber);
   }
 
   static String? readUserName() {
@@ -26,20 +26,44 @@ class SessionManager {
   }
 
   static Future<void> writeAuthorizationToken(String token) async {
-    await db.setData(SessionConstants.userAccessToken, token);
+    return await db.setData(SessionConstants.userAccessToken, token);
   }
 
-  static bool isLoggedIn() {
-    final isUserLoggedIn = db.getData(SessionConstants.isUserLoggedIn, false);
-
-    return isUserLoggedIn;
+  static Future<void> writeUserAccountBalance(double balance) async {
+    return await db.setData(SessionConstants.userAccountBalance, balance);
   }
 
-  // TODO: Remove
+  static double readUserAccountBalance() {
+    return db.getData(SessionConstants.userAccountBalance, 0);
+  }
+
+  static bool isUserLoggedIn() {
+    return db.getData(SessionConstants.isUserLoggedIn, false);
+  }
+
+  static Future<void> writeIsUserLoggedIn(bool value) async {
+    return await db.setData(SessionConstants.isUserLoggedIn, value);
+  }
+
+  static bool hasUserOnboard() {
+    return db.getData(SessionConstants.hasUserOnboard, false);
+  }
+
+  static Future<void> logout() async {
+    return await db.deleteAllData([
+      SessionConstants.isUserLoggedIn,
+      SessionConstants.userAccessToken,
+      SessionConstants.userAccountNumber,
+      SessionConstants.userName,
+      SessionConstants.userAccountBalance,
+    ]);
+  }
+
+  // TODO: Remove after deleting Services class
   static LoginResponse? getLoginDetails() {
-    final isUserLoggedIn = isLoggedIn();
+    final _ = isUserLoggedIn();
 
-    if (isUserLoggedIn) {
+    if (_) {
       final userData = db.getData(SessionConstants.loggingDetails, null);
 
       return LoginResponse.fromJson(userData);
@@ -47,12 +71,8 @@ class SessionManager {
     return null;
   }
 
-  // TODO: Remove
+  // TODO: Remove after deleting Services class
   static void setLoginDetails(LoginResponse loginResponse) async {
     db.setData(SessionConstants.loggingDetails, loginResponse.toJson().toString());
-  }
-
-  static Future<void> logout() async {
-    db.deleteData(SessionConstants.loggingDetails);
   }
 }

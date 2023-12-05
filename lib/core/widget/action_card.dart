@@ -10,6 +10,7 @@ class ActionCard extends StatelessWidget {
   final IconData iconData;
   final String title;
   final String subtitle;
+  final bool enabled;
 
   const ActionCard({
     super.key,
@@ -18,6 +19,7 @@ class ActionCard extends StatelessWidget {
     required this.iconData,
     required this.title,
     required this.subtitle,
+    required this.enabled,
   });
 
   @override
@@ -26,11 +28,11 @@ class ActionCard extends StatelessWidget {
       padding: const EdgeInsets.all(Dimensions.space1),
       child: InkWell(
         borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
-        onTap: onTap,
+        onTap: enabled ? onTap : null,
         child: Ink(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: color.withAlpha(0x08),
+            color: enabled ? color.withAlpha(0x08) : color.withAlpha(0x04),
             borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
             border: Border.all(color: color, width: 0.1),
           ),
@@ -52,7 +54,7 @@ class ActionCard extends StatelessWidget {
                     child: Icon(
                       iconData,
                       size: Dimensions.iconSize,
-                      color: color,
+                      color: enabled ? color : color.withOpacity(0.8),
                     ),
                   ),
                 ),

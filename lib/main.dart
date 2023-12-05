@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialBinding: MainBinding(),
-      initialRoute: AppRouter.getInitialRoute(),
+      initialRoute: AppRouter.initialRoute,
       getPages: AppRouter.pages,
       title: 'Veegil',
     );

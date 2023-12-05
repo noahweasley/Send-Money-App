@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/repositories/transaction_repository.dart';
+import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
 import 'package:veegil/core/widget/notifiers.dart';
@@ -21,7 +22,8 @@ class TopupWalletController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    walletBalance = 'Wallet balance: ${CurrencyFormat.ngnFormatMoney(0)}';
+    final balance = SessionManager.readUserAccountBalance();
+    walletBalance = 'Wallet balance: ${CurrencyFormat.ngnFormatMoney(balance)}';
   }
 
   void topupWallet() async {
@@ -33,11 +35,12 @@ class TopupWalletController extends GetxController {
 
       try {
         final response = await transactionRepository.fundWalletAsync(int.parse(amountController.text));
+        final amount = CurrencyFormat.ngnFormatMoney(response.data.sent);
 
         Notifiers.showAppDialog(
           type: NotificationType.success,
           title: 'Successful',
-          subtitle: 'You have successfully funded your wallet with ${response.data.sent}',
+          subtitle: 'You have successfully funded your wallet with $amount}',
           buttons: [
             DialogButton(
               label: 'OK',

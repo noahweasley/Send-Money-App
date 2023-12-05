@@ -8,7 +8,9 @@ import 'package:veegil/api/services/helpers/status_code.dart';
 import 'package:veegil/api/services/requests/transfer_request/transfer_request.dart';
 import 'package:veegil/api/services/requests/withdraw_request/withdraw_request.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
+import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
 import 'package:veegil/api/services/responses/transfer_response/transfer_response.dart';
+import 'package:veegil/api/services/responses/withdraw_response/withdraw_response.dart';
 
 class TransactionRepository {
   final apiConnectionHelper = ApiConnectionHelper();
@@ -82,8 +84,8 @@ class TransactionRepository {
     }
   }
 
-  /// Transfer funds from one user to another
-  Future<TransferResponse> withdrawMoneyAsync(int amount) async {
+  /// Withdraw money from user's account
+  Future<WithdrawResponse> withdrawMoneyAsync(int amount) async {
     final phoneNumber = SessionManager.readUserAccountNumber();
 
     if (phoneNumber == null) {
@@ -102,7 +104,28 @@ class TransactionRepository {
       );
 
       if (response.statusCode == HttpStatusCodes.ok) {
-        return TransferResponse.fromJson(response.data);
+        return WithdrawResponse.fromJson(response.data);
+      } else {
+        throw Exception(response.data['message']);
+      }
+    } on DioException catch (e) {
+      return Future.error(DioExceptions.fromDioError(e));
+    } on SocketException catch (e) {
+      return Future.error(e);
+    } catch (e) {
+      return Future.error(e);
+    }
+  }
+
+  /// retrieve user transactions
+  Future<TransactionHistoryResponse> retrieveUserTransactionsAsync() async {
+    try {
+      final response = await apiConnectionHelper.getDataAsync(
+        url: Endpoint.transactions,
+      );
+
+      if (response.statusCode == HttpStatusCodes.ok) {
+        return TransactionHistoryResponse.fromJson(response.data);
       } else {
         throw Exception(response.data['message']);
       }
