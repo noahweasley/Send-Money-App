@@ -20,6 +20,8 @@ class WithdrawController extends GetxController {
   String get balance => _balance.value;
   set balance(String value) => _balance.value = value;
 
+  String get walletBalance => 'Wallet balance: $balance';
+
   @override
   void onInit() {
     super.onInit();

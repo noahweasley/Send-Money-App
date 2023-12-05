@@ -87,7 +87,7 @@ class TransferScreen extends GetView<TransferController> {
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                controller.balance,
+                                controller.walletBalance,
                                 style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
                               ),
                             ),

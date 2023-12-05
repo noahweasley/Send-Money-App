@@ -15,19 +15,20 @@ class TopupWalletController extends GetxController {
   set isLoading(bool value) => _isLoading.value = value;
   bool get isLoading => _isLoading.value;
 
-  final _walletBalance = ''.obs;
-  set walletBalance(String value) => _walletBalance.value = value;
-  String get walletBalance => _walletBalance.value;
+  final _balance = ''.obs;
+  set balance(String value) => _balance.value = value;
+  String get balance => _balance.value;
+
+  String get walletBalance => 'Wallet balance: $balance';
 
   @override
   void onInit() {
     super.onInit();
-    final balance = SessionManager.readUserAccountBalance();
-    walletBalance = 'Wallet balance: ${CurrencyFormat.ngnFormatMoney(balance)}';
+    balance = CurrencyFormat.ngnFormatMoney(SessionManager.readUserAccountBalance());
   }
 
   Future<void> giveResults() async {
-    Get.back(result: walletBalance);
+    Get.back(result: balance);
   }
 
   void topupWallet() async {
@@ -39,6 +40,11 @@ class TopupWalletController extends GetxController {
 
       try {
         final response = await transactionRepository.fundWalletAsync(int.parse(amountController.text));
+
+        final double bal = SessionManager.readUserAccountBalance() + response.data.sent;
+        balance = CurrencyFormat.ngnFormatMoney(bal);
+        await SessionManager.writeUserAccountBalance(bal);
+
         final amount = CurrencyFormat.ngnFormatMoney(response.data.sent);
 
         Notifiers.showAppDialog(

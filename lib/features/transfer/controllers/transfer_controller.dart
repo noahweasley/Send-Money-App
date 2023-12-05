@@ -21,6 +21,8 @@ class TransferController extends GetxController {
   set isProcessing(value) => _isProcessing.value = value;
   get isProcessing => _isProcessing.value;
 
+  String get walletBalance => 'Wallet balance: $balance';
+
   @override
   void onInit() {
     super.onInit();
