@@ -5,6 +5,7 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/utilities/size_config.dart';
 import 'package:veegil/features/get_started/controllers/landing_page_controller.dart';
 import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
+import 'package:veegil/features/profile/screens/profile_screen.dart';
 import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
 
 class LandingPageScreen extends GetView<LandingPageController> {
@@ -25,6 +26,7 @@ class LandingPageScreen extends GetView<LandingPageController> {
                 children: const [
                   DashboardScreen(),
                   TransactionHistoryScreen(),
+                  ProfileScreen(),
                 ],
               );
             }),
@@ -50,7 +52,11 @@ class LandingPageScreen extends GetView<LandingPageController> {
             BottomNavigationBarItem(
               icon: Icon(Icons.payment_outlined),
               label: 'History',
-            )
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_3_outlined),
+              label: 'Profile',
+            ),
           ],
         );
       }),
