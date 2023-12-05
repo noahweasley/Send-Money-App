@@ -50,7 +50,7 @@ class TopupWalletController extends GetxController {
         Notifiers.showAppDialog(
           type: NotificationType.success,
           title: 'Successful',
-          subtitle: 'You have successfully funded your wallet with $amount}',
+          subtitle: 'You have successfully funded your wallet with $amount',
           buttons: [
             DialogButton(
               label: 'OK',
