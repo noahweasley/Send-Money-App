@@ -10,6 +10,9 @@ import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
 import 'package:veegil/core/widget/action_card.dart';
 import 'package:veegil/core/widget/annotated_status_bar.dart';
+import 'package:veegil/core/widget/empty_list.dart';
+import 'package:veegil/core/widget/history_list_loading.dart';
+import 'package:veegil/core/widget/list_shimmer.dart';
 import 'package:veegil/core/widget/transaction_list_item.dart';
 import 'package:veegil/core/widget/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
@@ -23,17 +26,20 @@ class DashboardScreen extends GetView<DashboardController> {
       backgroundColor: AppColor.background,
       body: AnnotatedStatusBar(
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Obx(() {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildAccountInfo(),
-                  _buildActions(),
-                  _buildRecentTransactions(),
-                ],
-              );
-            }),
+          child: RefreshIndicator(
+            onRefresh: controller.refreshPage,
+            child: SingleChildScrollView(
+              child: Obx(() {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildAccountInfo(),
+                    _buildActions(),
+                    _buildRecentTransactions(),
+                  ],
+                );
+              }),
+            ),
           ),
         ),
       ),
@@ -197,7 +203,7 @@ class DashboardScreen extends GetView<DashboardController> {
 
   Widget _buildRecentTransactions() {
     return Padding(
-      padding: const EdgeInsets.all(Dimensions.space2),
+      padding: const EdgeInsets.all(Dimensions.space3),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -205,18 +211,33 @@ class DashboardScreen extends GetView<DashboardController> {
             'Latest Transactions',
             style: AppStyle.body1Primary,
           ),
-          const SizedBox(height: Dimensions.space2),
-          ListView.separated(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(Dimensions.space2),
-            itemCount: controller.transactions.length,
-            separatorBuilder: (context, index) {
-              return const SizedBox(height: Dimensions.space1);
-            },
-            itemBuilder: (context, index) {
-              return TransactionListItem(data: controller.transactions[index]);
-            },
-          ),
+          const SizedBox(height: Dimensions.space3),
+          Obx(() {
+            return ListShimmer(
+              isLoading: controller.isTransactionLoading,
+              itemCount: 10,
+              loadingPlaceholder: const HistoryListLoading(),
+              child: IndexedStack(
+                index: controller.transactions.isEmpty ? 0 : 1,
+                children: [
+                  const EmptyList(
+                    text: 'No transaction history',
+                  ),
+                  ListView.separated(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: controller.transactions.length,
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(height: Dimensions.space2);
+                    },
+                    itemBuilder: (context, index) {
+                      return TransactionListItem(data: controller.transactions[index]);
+                    },
+                  ),
+                ],
+              ),
+            );
+          }),
         ],
       ),
     );

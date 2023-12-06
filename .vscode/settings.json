@@ -1,7 +1,17 @@
 {
-    "cSpell.words": [
-        "lato",
-        "veegil"
-    ],
-    "explorer.excludeGitIgnore": true
+  "explorer.excludeGitIgnore": true,
+  "dart.lineLength": 125,
+  "[dart]": {
+    // "editor.rulers": [125],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "editor.tabSize": 3,
+    "editor.defaultFormatter": "Dart-Code.dart-code"
+  },
+  "cSpell.words": [
+    "veegil"
+  ]
 }

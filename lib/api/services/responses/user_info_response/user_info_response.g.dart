@@ -24,7 +24,7 @@ Map<String, dynamic> _$UserInfoResponseToJson(UserInfoResponse instance) =>
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       phoneNumber: json['phoneNumber'] as String,
-      balance: (json['balance'] as num).toDouble(),
+      balance: (json['balance'] as num?)?.toDouble(),
       created: DateTime.parse(json['created'] as String),
     );
 

@@ -12,6 +12,7 @@ class TransactionHistoryScreen extends GetView {
     return Scaffold(
       backgroundColor: AppColor.background,
       appBar: CustomAppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           'History',
           style: AppStyle.title,

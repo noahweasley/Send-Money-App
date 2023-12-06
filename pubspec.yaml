@@ -41,6 +41,8 @@ dependencies:
   http: ^0.13.5
   # Remove
   get: ^4.6.6
+  flutter_sticky_header: ^0.6.5
+  shimmer: ^3.0.0
 
 dev_dependencies:
   change_app_package_name: ^1.1.0

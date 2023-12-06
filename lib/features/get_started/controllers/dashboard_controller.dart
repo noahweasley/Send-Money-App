@@ -56,6 +56,11 @@ class DashboardController extends GetxController {
     retrieveLatestTransaction();
   }
 
+  Future<void> refreshPage() async {
+    await retrieveUserDetails();
+    await retrieveLatestTransaction();
+  }
+
   Future<void> topup() async {
     await FundOptionsBottomSheet.show(
       bankName: 'Veegil Bank',

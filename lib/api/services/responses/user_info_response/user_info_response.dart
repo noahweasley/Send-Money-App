@@ -22,7 +22,7 @@ class UserInfoResponse {
 @JsonSerializable()
 class UserData {
   final String phoneNumber;
-  final double balance;
+  final double? balance;
   final DateTime created;
 
   UserData({

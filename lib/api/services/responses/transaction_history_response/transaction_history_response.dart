@@ -1,4 +1,7 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:veegil/api/services/resources/managers/session_manager.dart';
+import 'package:veegil/core/utilities/currency_format.dart';
 
 part 'transaction_history_response.g.dart';
 
@@ -19,11 +22,32 @@ class TransactionHistoryResponse {
 
 @JsonSerializable()
 class Transaction {
-  final num amount;
-  final String type;
+  static const String debit = 'debit';
+  static const String credit = 'credit';
+
+  final num? amount;
   final num? balance;
+  final String type;
   final String phoneNumber;
   final DateTime created;
+
+  bool get isTodayTransaction => created.day == DateTime.now().day;
+
+  String get dAmount {
+    return '${(type == credit ? '+' : '-')}${CurrencyFormat.ngnFormatMoney(amount)}';
+  }
+
+  String get dType {
+    return type.toUpperCase();
+  }
+
+  String get dCreated {
+    return DateFormat('y-MM-dd, HH:mm:ss').format(created);
+  }
+
+  String get dPhoneNumber {
+    return (type == credit) ? 'TO YOU' : 'From Bank';
+  }
 
   factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 

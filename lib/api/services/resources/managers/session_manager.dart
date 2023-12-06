@@ -29,8 +29,8 @@ class SessionManager {
     return await db.setData(SessionConstants.userAccessToken, token);
   }
 
-  static Future<void> writeUserAccountBalance(double balance) async {
-    return await db.setData(SessionConstants.userAccountBalance, balance);
+  static Future<void> writeUserAccountBalance(double? balance) async {
+    return await db.setData(SessionConstants.userAccountBalance, balance ?? 0);
   }
 
   static double readUserAccountBalance() {

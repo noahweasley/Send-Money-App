@@ -23,7 +23,7 @@ Map<String, dynamic> _$TransactionHistoryResponseToJson(
     };
 
 Transaction _$TransactionFromJson(Map<String, dynamic> json) => Transaction(
-      amount: json['amount'] as num,
+      amount: json['amount'] as num?,
       type: json['type'] as String,
       balance: json['balance'] as num?,
       phoneNumber: json['phoneNumber'] as String,
@@ -33,8 +33,8 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) => Transaction(
 Map<String, dynamic> _$TransactionToJson(Transaction instance) =>
     <String, dynamic>{
       'amount': instance.amount,
-      'type': instance.type,
       'balance': instance.balance,
+      'type': instance.type,
       'phoneNumber': instance.phoneNumber,
       'created': instance.created.toIso8601String(),
     };
