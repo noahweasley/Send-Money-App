@@ -17,13 +17,20 @@ class MainList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ifHistorySorted = controller.isHistorySorted && controller.historyItems.isNotEmpty;
+    final isTodaySorted = !controller.isHistorySorted && controller.todayTransaction.isNotEmpty;
+    final isEarlierSorted = !controller.isHistorySorted && controller.earlierTransaction.isNotEmpty;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Dimensions.space2),
       child: Stack(
         children: [
           CustomScrollView(
-            slivers: _buildSlivers(),
-            reverse: false,
+            slivers: [
+              if (ifHistorySorted) _buildSortedList(controller.selectedFilterType),
+              if (isTodaySorted) _buildTodayList(),
+              if (isEarlierSorted) _buildEarlierList(),
+            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -59,24 +66,6 @@ class MainList extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  List<Widget> _buildSlivers() {
-    final sliverList = <Widget>[];
-
-    if (controller.isHistorySorted && controller.historyItems.isNotEmpty) {
-      sliverList.add(_buildSortedList(controller.selectedFilterType));
-    } else {
-      if (controller.todayTransaction.isNotEmpty) {
-        sliverList.add(_buildTodayList());
-      }
-
-      if (controller.earlierTransaction.isNotEmpty) {
-        sliverList.add(_buildEarlierList());
-      }
-    }
-
-    return sliverList;
   }
 
   Widget _buildEarlierList() {
