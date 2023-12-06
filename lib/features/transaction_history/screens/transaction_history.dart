@@ -39,7 +39,10 @@ class TransactionHistoryScreen extends GetView<HistoryController> {
                 const EmptyList(
                   text: 'No transaction history',
                 ),
-                MainList(controller: controller),
+                RefreshIndicator(
+                  onRefresh: controller.retrieveTransactionHistory,
+                  child: MainList(controller: controller),
+                )
               ],
             ),
           );

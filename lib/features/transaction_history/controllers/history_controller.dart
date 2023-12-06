@@ -33,7 +33,7 @@ class HistoryController extends GetxController {
   @override
   void onInit() {
     isLoading = true;
-    getAllTransactionHistory();
+    retrieveTransactionHistory();
     super.onInit();
   }
 
@@ -59,7 +59,7 @@ class HistoryController extends GetxController {
     isHistorySorted = true;
   }
 
-  Future<void> getAllTransactionHistory() async {
+  Future<void> retrieveTransactionHistory() async {
     isLoading = true;
     final uPhoneNumber = SessionManager.readUserAccountNumber();
 

@@ -90,7 +90,7 @@ class MainList extends StatelessWidget {
           (_, index) {
             return Column(
               children: [
-                TransactionListItem(data: controller.historyItems[index]),
+                TransactionListItem(data: controller.earlierTransaction[index]),
                 const SizedBox(height: Dimensions.space2),
               ],
             );
