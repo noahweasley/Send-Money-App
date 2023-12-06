@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/repositories/transaction_repository.dart';
@@ -72,6 +73,20 @@ class DashboardController extends GetxController {
     );
   }
 
+  void showInfo() {
+    Notifiers.showAppDialog(
+      title: 'Info',
+      subtitle: 'Latest transactions shows only your 10 most recent transactions,'
+          ' click on the history navigation item at the bottom of your screen, to view everything',
+      buttons: [
+        DialogButton(
+          label: 'Ok',
+          onTap: Get.back,
+        ),
+      ],
+    );
+  }
+
   Future<void> navigateToWithdraw() async {
     final results = await Get.toNamed(Routes.withdraw);
     balance = results as String;
@@ -128,7 +143,8 @@ class DashboardController extends GetxController {
       final response = await transactionRepository.retrieveUserTransactionsAsync();
       if (response.data.isNotEmpty) {
         // find this user's specific unique account transaction
-        final userData = response.data.where((element) => element.phoneNumber == accountNumber).take(10);
+        final dList = response.data.where((element) => element.phoneNumber == accountNumber);
+        final userData = dList.sorted(Transaction.sortByNewToOld).take(10);
         if (userData.isNotEmpty) {
           // show filtered list
           transactions = userData.toList();

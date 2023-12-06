@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 
 part 'transaction_history_response.g.dart';
@@ -46,10 +45,8 @@ class Transaction {
   }
 
   String get dPhoneNumber {
-    return (type == credit) ? 'TO YOU' : 'From Bank';
+    return (type == credit) ? 'To You' : 'From Bank';
   }
-
-  factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
 
   Transaction({
     required this.amount,
@@ -59,5 +56,15 @@ class Transaction {
     required this.created,
   });
 
+  factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
+
   Map<String, dynamic> toJson() => _$TransactionToJson(this);
+
+  static int Function(Transaction, Transaction) sortByNewToOld = (a, b) => -a.created.compareTo(b.created);
+
+  static int Function(Transaction, Transaction) sortByOldToNew = (a, b) => (a.created.compareTo(b.created));
+
+  static int Function(Transaction, Transaction) sortByMonthly = (a, b) => a.created.month.compareTo(b.created.month);
+
+  static int Function(Transaction, Transaction) sortByYearly = (a, b) => a.created.year.compareTo(b.created.year);
 }

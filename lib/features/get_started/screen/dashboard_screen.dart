@@ -29,6 +29,7 @@ class DashboardScreen extends GetView<DashboardController> {
           child: RefreshIndicator(
             onRefresh: controller.refreshPage,
             child: SingleChildScrollView(
+              // TODO: Optimize Obx using here
               child: Obx(() {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,13 +204,29 @@ class DashboardScreen extends GetView<DashboardController> {
 
   Widget _buildRecentTransactions() {
     return Padding(
-      padding: const EdgeInsets.all(Dimensions.space3),
+      padding: const EdgeInsets.all(Dimensions.space2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Latest Transactions',
-            style: AppStyle.body1Primary,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Latest Transactions',
+                style: AppStyle.body1Primary,
+              ),
+              InkWell(
+                customBorder: const CircleBorder(),
+                onTap: controller.showInfo,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.info_outline_rounded,
+                    color: AppColor.primaryMain,
+                  ),
+                ),
+              )
+            ],
           ),
           const SizedBox(height: Dimensions.space3),
           Obx(() {
