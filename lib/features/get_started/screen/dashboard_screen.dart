@@ -8,13 +8,13 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
-import 'package:veegil/core/widget/action_card.dart';
-import 'package:veegil/core/widget/annotated_status_bar.dart';
-import 'package:veegil/core/widget/empty_list.dart';
-import 'package:veegil/core/widget/history_list_loading.dart';
-import 'package:veegil/core/widget/list_shimmer.dart';
-import 'package:veegil/core/widget/transaction_list_item.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/action_card.dart';
+import 'package:veegil/core/widgets/annotated_status_bar.dart';
+import 'package:veegil/core/widgets/empty_list.dart';
+import 'package:veegil/core/widgets/history_list_loading.dart';
+import 'package:veegil/core/widgets/list_shimmer.dart';
+import 'package:veegil/core/widgets/transaction_list_item.dart';
+import 'package:veegil/core/widgets/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
 
 class DashboardScreen extends GetView<DashboardController> {

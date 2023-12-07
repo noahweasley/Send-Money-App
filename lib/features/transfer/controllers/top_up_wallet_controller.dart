@@ -4,7 +4,7 @@ import 'package:veegil/api/repositories/transaction_repository.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widget/notifiers.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
 
 class TopupWalletController extends GetxController {
   final transactionRepository = TransactionRepository();

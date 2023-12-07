@@ -4,7 +4,7 @@ import 'package:veegil/api/repositories/transaction_repository.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widget/notifiers.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
 
 class HistoryController extends GetxController {
   final repository = TransactionRepository();
@@ -32,9 +32,9 @@ class HistoryController extends GetxController {
 
   @override
   void onInit() {
+    super.onInit();
     isLoading = true;
     retrieveTransactionHistory();
-    super.onInit();
   }
 
   void filterList(String sortLabel) {

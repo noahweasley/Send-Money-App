@@ -5,7 +5,7 @@ import 'package:veegil/api/services/requests/login_request/login_request.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widget/notifiers.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
 
 class LoginController extends GetxController {
   final authRepository = AuthRepository();

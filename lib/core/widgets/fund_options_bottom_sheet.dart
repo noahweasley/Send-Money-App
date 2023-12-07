@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widget/notifiers.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
+import 'package:veegil/core/widgets/util.dart';
 
 class _FundOptionsBottomSheet extends StatelessWidget {
   final String bankName, accountNumber;

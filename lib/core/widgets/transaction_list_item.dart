@@ -3,7 +3,7 @@ import 'package:veegil/api/services/responses/transaction_history_response/trans
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/util.dart';
 
 class TransactionListItem extends StatelessWidget {
   final Transaction data;

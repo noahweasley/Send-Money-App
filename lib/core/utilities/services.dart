@@ -130,7 +130,7 @@ class Services {
       actions: [
         IconButton(
             onPressed: () {
-              SessionManager.logout();
+              SessionManager.logoutUser();
             },
             icon: Stack(
               children: [

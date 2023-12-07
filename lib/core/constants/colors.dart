@@ -29,4 +29,5 @@ class AppColor {
   static const dark = Color(0xFF181818);
   static const primaryMain = Color(0xFF1D4ED8);
   static const separatorColor = Color(0x3C3C435C);
+  static const systemOverlayColor = AppColor.primaryDark;
 }

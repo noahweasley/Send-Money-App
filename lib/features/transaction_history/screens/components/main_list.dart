@@ -3,8 +3,8 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widget/header.dart';
-import 'package:veegil/core/widget/transaction_list_item.dart';
+import 'package:veegil/core/widgets/header.dart';
+import 'package:veegil/core/widgets/transaction_list_item.dart';
 import 'package:veegil/features/transaction_history/controllers/history_controller.dart';
 
 class MainList extends StatelessWidget {
@@ -50,6 +50,7 @@ class MainList extends StatelessWidget {
                   }).toList();
                 },
                 child: TextButton.icon(
+                  onPressed: null,
                   icon: const Icon(
                     Icons.filter_alt_outlined,
                     size: Dimensions.iconSize,
@@ -58,7 +59,6 @@ class MainList extends StatelessWidget {
                     'Filter',
                     style: AppStyle.titlePrimaryTint,
                   ),
-                  onPressed: null,
                 ),
               ),
             ],
@@ -76,6 +76,7 @@ class MainList extends StatelessWidget {
       ),
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
+          childCount: controller.earlierTransaction.length,
           (_, index) {
             return Column(
               children: [
@@ -84,7 +85,6 @@ class MainList extends StatelessWidget {
               ],
             );
           },
-          childCount: controller.earlierTransaction.length,
         ),
       ),
     );
@@ -98,6 +98,7 @@ class MainList extends StatelessWidget {
       ),
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
+          childCount: controller.todayTransaction.length,
           (_, index) {
             return Column(
               children: [
@@ -106,7 +107,6 @@ class MainList extends StatelessWidget {
               ],
             );
           },
-          childCount: controller.todayTransaction.length,
         ),
       ),
     );
@@ -120,6 +120,7 @@ class MainList extends StatelessWidget {
       ),
       sliver: SliverList(
         delegate: SliverChildBuilderDelegate(
+          childCount: controller.historyItems.length,
           (_, index) {
             return Column(
               children: [
@@ -128,7 +129,6 @@ class MainList extends StatelessWidget {
               ],
             );
           },
-          childCount: controller.historyItems.length,
         ),
       ),
     );

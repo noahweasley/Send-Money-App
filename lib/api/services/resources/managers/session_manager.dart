@@ -49,7 +49,7 @@ class SessionManager {
     return db.getData(SessionConstants.hasUserOnboard, false);
   }
 
-  static Future<void> logout() async {
+  static Future<void> logoutUser() async {
     return await db.deleteAllData([
       SessionConstants.isUserLoggedIn,
       SessionConstants.userAccessToken,

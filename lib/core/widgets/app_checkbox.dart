@@ -4,7 +4,7 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
 import 'package:veegil/core/utilities/extensions/widget_extension.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/util.dart';
 
 class AppCheckBox extends StatefulWidget {
   final String? text;

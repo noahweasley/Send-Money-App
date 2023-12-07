@@ -5,7 +5,7 @@ import 'package:veegil/api/services/requests/transfer_request/transfer_request.d
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widget/notifiers.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
 
 class TransferController extends GetxController {
   final transactionRepository = TransactionRepository();

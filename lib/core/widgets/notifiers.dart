@@ -4,7 +4,7 @@ import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/utilities/extensions/widget_extension.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/util.dart';
 
 /// Dialog types
 enum NotificationType { info, warning, success }

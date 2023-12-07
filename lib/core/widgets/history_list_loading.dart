@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/widget/util.dart';
+import 'package:veegil/core/widgets/util.dart';
 
 class HistoryListLoading extends StatelessWidget {
   const HistoryListLoading({super.key});

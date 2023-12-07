@@ -5,10 +5,10 @@ import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widget/app_bar.dart';
-import 'package:veegil/core/widget/empty_list.dart';
-import 'package:veegil/core/widget/history_list_loading.dart';
-import 'package:veegil/core/widget/list_shimmer.dart';
+import 'package:veegil/core/widgets/app_bar.dart';
+import 'package:veegil/core/widgets/empty_list.dart';
+import 'package:veegil/core/widgets/history_list_loading.dart';
+import 'package:veegil/core/widgets/list_shimmer.dart';
 import 'package:veegil/features/transaction_history/controllers/history_controller.dart';
 import 'package:veegil/features/transaction_history/screens/components/main_list.dart';
 

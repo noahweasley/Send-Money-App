@@ -7,8 +7,8 @@ import 'package:veegil/api/services/requests/signup_request/signup_request.dart'
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
 import 'package:veegil/core/validators/regex_patterns.dart';
-import 'package:veegil/core/widget/notifiers.dart';
-import 'package:veegil/core/widget/password_strength_bar.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
+import 'package:veegil/core/widgets/password_strength_bar.dart';
 
 class SignupController extends GetxController {
   final userRepository = AuthRepository();

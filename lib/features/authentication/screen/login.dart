@@ -7,12 +7,12 @@ import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/size_config.dart';
 import 'package:veegil/core/validators/password_validator.dart';
 import 'package:veegil/core/validators/phone_number_validator.dart';
-import 'package:veegil/core/widget/app_bar.dart';
-import 'package:veegil/core/widget/app_button.dart';
-import 'package:veegil/core/widget/app_checkbox.dart';
-import 'package:veegil/core/widget/app_icon.dart';
-import 'package:veegil/core/widget/app_textfield.dart';
-import 'package:veegil/core/widget/overlay_indeterminate_progress.dart';
+import 'package:veegil/core/widgets/app_bar.dart';
+import 'package:veegil/core/widgets/app_button.dart';
+import 'package:veegil/core/widgets/app_checkbox.dart';
+import 'package:veegil/core/widgets/app_icon.dart';
+import 'package:veegil/core/widgets/app_textfield.dart';
+import 'package:veegil/core/widgets/overlay_indeterminate_progress.dart';
 import 'package:veegil/features/authentication/controllers/login_controller.dart';
 
 class LoginScreen extends GetView<LoginController> {

@@ -8,8 +8,8 @@ import 'package:veegil/api/services/responses/transaction_history_response/trans
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widget/fund_options_bottom_sheet.dart';
-import 'package:veegil/core/widget/notifiers.dart';
+import 'package:veegil/core/widgets/fund_options_bottom_sheet.dart';
+import 'package:veegil/core/widgets/notifiers.dart';
 
 class DashboardController extends GetxController {
   final userInfoRepository = UserInfoRepository();
@@ -40,10 +40,6 @@ class DashboardController extends GetxController {
   String get greeting => _greeting.value;
   set greeting(String value) => _greeting.value = value;
 
-  final _phoneNumber = '...loading'.obs;
-  String get phoneNumber => _phoneNumber.value;
-  set phoneNumber(String value) => _phoneNumber.value = value;
-
   final _transactions = <Transaction>[].obs;
   List<Transaction> get transactions => _transactions;
   set transactions(List<Transaction> value) => _transactions.value = value;
@@ -72,6 +68,13 @@ class DashboardController extends GetxController {
       },
     );
   }
+
+  Future<void> logout() async {
+    await SessionManager.logoutUser();
+    Get.offAllNamed(Routes.login);
+  }
+
+  void editName() {}
 
   void showInfo() {
     Notifiers.showAppDialog(
