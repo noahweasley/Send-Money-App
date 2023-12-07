@@ -6,13 +6,25 @@ This README file provides an overview of the Banking App with features included 
 
 ### Name
 
-- Ebenmelu Ifechukwu Emmanuel - LinkedIn
-
+- Ebenmelu Ifechukwu Emmanuel - [LinkedIn](https://www.linkedin.com/in/ebenmelu-ifechukwu/ "View my linkedIn profile")
 - Ebenmelu Ifechukwu - Indeed
+
+### Contact Details
+
+- [iebenmelu@gmail.com](mailto:iebenmelu@gmail.com "Send an email")
+- [07065478947](tel:+2347065478947 "Call me")
 
 ### Work
 
 Mobile Application Developer with a little over 1 year working experience using Flutter and Dart, and in the past, have worked as a Native Android developer building high performant native Android applications. I have been building Native Android applications for years because I am passionate about android apps, before I discovered cross-platform development mobile app development using Flutter
+
+### Relevant Skills
+
+Dart, Java, Kotlin, Flutter, Android S.D.K, Git, GitHub Actions...
+
+## Resume
+
+View my resume here
 
 ## Project Overview
 
@@ -46,13 +58,11 @@ To get started with the project, follow the steps below:
    ```
    git clone https://gitlab.com/noahweasley/veegil.git
    ```
-
 2. Navigate to the project directory:
 
    ```
    cd veegil
    ```
-
 3. Fetch the dependencies by running the following command:
 
    ```
@@ -78,7 +88,6 @@ These are some of the tools used to build the application:
   ```
 
   To run the build runner and watch for future changes.
-
 - Run launcher icon generation, flutter_launcher_icons package was used by running the command below:
 
   ```shell
@@ -158,9 +167,7 @@ The project uses a feature based folder structure, to ensure that if the applica
 Where:
 
 - **api**: represents every logic relating to request to the banking apis are stored
-
 - **core**: represents the majority of the reusable components are stored. Components that are used throughout the app
-
 - **features**: represents the individual features in the app as can be categorized by the user. Authentication is a feature and each feature has two sub-folders; **controllers** and **screens**. **controllers** is where the business logic of each screen are stored, while, **screens** are the UI displayed to the user in the app.
 
 ### Architectural Design
