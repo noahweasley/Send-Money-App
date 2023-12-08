@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/widgets/util.dart';
 
 class HistoryListLoading extends StatelessWidget {
   const HistoryListLoading({super.key});
@@ -12,8 +12,8 @@ class HistoryListLoading extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         color: AppColor.white2,
-        border: WidgetUtil.borderPrimaryDark,
-        borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+        border: AppStyle.borderPrimaryDark,
+        borderRadius: AppStyle.borderRadiusRoundedAllSides,
       ),
     );
   }

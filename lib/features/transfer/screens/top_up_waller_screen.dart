@@ -20,10 +20,11 @@ class TopupWalletScreen extends GetView<TopupWalletController> {
     SizeConfig.init(context);
 
     return SafeArea(
-      child: WillPopScope(
-        onWillPop: () async {
+      child: PopScope(
+        canPop: true,
+        onPopInvoked: (_) async {
           controller.giveResults();
-          return true;
+          return;
         },
         child: Scaffold(
           backgroundColor: AppColor.background,

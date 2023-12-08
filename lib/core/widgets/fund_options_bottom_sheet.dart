@@ -5,7 +5,6 @@ import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/widgets/notifiers.dart';
-import 'package:veegil/core/widgets/util.dart';
 
 class _FundOptionsBottomSheet extends StatelessWidget {
   final String bankName, accountNumber;
@@ -73,7 +72,7 @@ class _FundOptionsBottomSheet extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: AppColor.grey.withOpacity(0.2),
-                    borderRadius: WidgetUtil.borderRadiusCircularOnlyTop1,
+                    borderRadius: AppStyle.borderRadiusCircularOnlyTop1,
                   ),
                   child: Column(
                     children: <Widget>[
@@ -140,7 +139,7 @@ class _FundOptionsBottomSheet extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: Dimensions.space2),
                 child: Material(
-                  borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+                  borderRadius: AppStyle.borderRadiusRoundedAllSides,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: InkWell(
                     splashColor: AppColor.primaryDark.withOpacity(0.2),
@@ -212,7 +211,7 @@ class FundOptionsBottomSheet {
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       shape: RoundedRectangleBorder(
-        borderRadius: WidgetUtil.borderRadiusCircularOnlyTop1,
+        borderRadius: AppStyle.borderRadiusCircularOnlyTop1,
       ),
     );
   }

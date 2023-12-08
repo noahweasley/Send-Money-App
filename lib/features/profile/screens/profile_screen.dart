@@ -6,7 +6,6 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/widgets/annotated_status_bar.dart';
 import 'package:veegil/core/widgets/stats_bar_chart.dart';
-import 'package:veegil/core/widgets/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
 
 class ProfileScreen extends GetView<DashboardController> {
@@ -81,7 +80,7 @@ class ProfileScreen extends GetView<DashboardController> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(2000),
               color: AppColor.primaryMain,
-              border: WidgetUtil.borderGreen,
+              border: AppStyle.borderGreen,
             ),
             child: SizedBox(
               width: 30,

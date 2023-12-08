@@ -4,7 +4,6 @@ import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/utilities/extensions/size_extensions.dart';
 import 'package:veegil/core/utilities/extensions/widget_extension.dart';
-import 'package:veegil/core/widgets/util.dart';
 
 class AppCheckBox extends StatefulWidget {
   final String? text;
@@ -55,11 +54,11 @@ class _AppCheckBoxState extends State<AppCheckBox> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+      borderRadius: AppStyle.borderRadiusRoundedAllSides,
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Ink(
         decoration: BoxDecoration(
-          borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+          borderRadius: AppStyle.borderRadiusRoundedAllSides,
         ),
         child: InkWell(
           onTap: () {

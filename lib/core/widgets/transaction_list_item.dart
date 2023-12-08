@@ -3,7 +3,6 @@ import 'package:veegil/api/services/responses/transaction_history_response/trans
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widgets/util.dart';
 
 class TransactionListItem extends StatelessWidget {
   final Transaction data;
@@ -22,8 +21,8 @@ class TransactionListItem extends StatelessWidget {
       padding: const EdgeInsets.all(Dimensions.space2),
       decoration: BoxDecoration(
         color: AppColor.white2,
-        border: WidgetUtil.borderPrimaryDark,
-        borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+        border: AppStyle.borderPrimaryDark,
+        borderRadius: AppStyle.borderRadiusRoundedAllSides,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

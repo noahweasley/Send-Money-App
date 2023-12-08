@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widgets/util.dart';
 
 class ActionCard extends StatelessWidget {
   final VoidCallback onTap;
@@ -27,13 +26,13 @@ class ActionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(Dimensions.space1),
       child: InkWell(
-        borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+        borderRadius: AppStyle.borderRadiusRoundedAllSides,
         onTap: enabled ? onTap : null,
         child: Ink(
           width: double.infinity,
           decoration: BoxDecoration(
             color: enabled ? color.withAlpha(0x08) : color.withAlpha(0x04),
-            borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+            borderRadius: AppStyle.borderRadiusRoundedAllSides,
             border: Border.all(color: color, width: 0.1),
           ),
           padding: const EdgeInsets.all(Dimensions.space1),

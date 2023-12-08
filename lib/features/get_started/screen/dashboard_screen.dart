@@ -14,7 +14,6 @@ import 'package:veegil/core/widgets/empty_list.dart';
 import 'package:veegil/core/widgets/history_list_loading.dart';
 import 'package:veegil/core/widgets/list_shimmer.dart';
 import 'package:veegil/core/widgets/transaction_list_item.dart';
-import 'package:veegil/core/widgets/util.dart';
 import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
@@ -56,8 +55,8 @@ class DashboardScreen extends GetView<DashboardController> {
           padding: const EdgeInsets.all(Dimensions.space2),
           decoration: BoxDecoration(
             color: AppColor.white2,
-            border: WidgetUtil.borderPrimaryDark,
-            borderRadius: WidgetUtil.borderRadiusRoundedAllSides,
+            border: AppStyle.borderPrimaryDark,
+            borderRadius: AppStyle.borderRadiusRoundedAllSides,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
