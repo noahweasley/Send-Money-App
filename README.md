@@ -54,13 +54,11 @@ To get started with the project, follow the steps below:
    ```
    git clone https://gitlab.com/noahweasley/veegil.git
    ```
-
 2. Navigate to the project directory:
 
    ```
    cd veegil
    ```
-
 3. Fetch the dependencies by running the following command:
 
    ```
@@ -86,7 +84,6 @@ These are some of the tools used to build the application:
   ```
 
   To run the build runner and watch for future changes.
-
 - Run launcher icon generation, flutter_launcher_icons package was used by running the command below:
 
   ```shell
@@ -220,10 +217,9 @@ This screen aims to visualize the monthly spending of the registered user
 ## Setbacks because of Time limit and Bugs noticed on the API
 
 - Withdraw gives false time, hence UI transaction history displays incorrect data
-
 - Had to perform Transaction and withdraw on app, so if network fails during transfer, app might transfer to user and not deduct money from user account
-
 - User transaction history isn't sorted from newest to oldest transactions, I had to do that
+- Naira sign migth not display correctly, the font 'Lato' that was used didn't display the naira  on the emulator, but works on Web. Time constraints didn't allow to look for a better font
 
 ## Conclusion
 
