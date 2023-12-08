@@ -220,6 +220,8 @@ This screen aims to visualize the monthly spending of the registered user
 - Had to perform Transaction and withdraw on app, so if network fails during transfer, app might transfer to user and not deduct money from user account
 - User transaction history isn't sorted from newest to oldest transactions, I had to do that
 - Naira sign migth not display correctly, the font 'Lato' that was used didn't display the naira  on the emulator, but works on Web. Time constraints didn't allow to look for a better font
+- User name wasn't provided, so a default 'User' was displayed on dashboard and on the profile. The edit icon on profile doesn't do anything, that was supposed to be implemented, but time didn't allow it
+- App was built using the default keystore file, for a real app, the app would be signed with a normal keystore file, before uploaded for release
 
 ## Conclusion
 
