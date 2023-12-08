@@ -5,6 +5,7 @@ import 'package:veegil/features/authentication/screen/login.dart';
 import 'package:veegil/features/authentication/screen/sign_up.dart';
 import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
 import 'package:veegil/features/get_started/screen/landing_page_screen.dart';
+import 'package:veegil/features/onboarding/screens/onboarding_screen.dart';
 import 'package:veegil/features/shared/bindings/main_binding.dart';
 import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
 import 'package:veegil/features/transfer/screens/top_up_waller_screen.dart';
@@ -61,6 +62,12 @@ class AppRouter {
       transition: Transition.leftToRight,
       page: () => const TransferScreen(),
     ),
+    GetPage(
+      name: Routes.onboarding,
+      binding: MainBinding(),
+      transition: Transition.leftToRight,
+      page: () => const OnBoardingScreen(),
+    ),
   ];
 
   static String get initialRoute {
@@ -72,7 +79,7 @@ class AppRouter {
     } else if (hasUserOnboard) {
       return Routes.login;
     } else {
-      return Routes.login;
+      return Routes.onboarding;
     }
   }
 }

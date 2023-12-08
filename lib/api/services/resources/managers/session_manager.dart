@@ -49,6 +49,10 @@ class SessionManager {
     return db.getData(SessionConstants.hasUserOnboard, false);
   }
 
+  static Future<void> writeIsUserOnBoarded(bool value) async {
+    return await db.setData(SessionConstants.hasUserOnboard, value);
+  }
+
   static Future<void> logoutUser() async {
     return await db.deleteAllData([
       SessionConstants.isUserLoggedIn,

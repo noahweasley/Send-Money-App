@@ -164,13 +164,15 @@ The project uses a feature based folder structure, to ensure that if the applica
     - controllers
     - screens
 
-Where:
+_Where_:
 
 - **api**: represents every logic relating to request to the banking apis are stored
 - **core**: represents the majority of the reusable components are stored. Components that are used throughout the app
 - **features**: represents the individual features in the app as can be categorized by the user. Authentication is a feature and each feature has two sub-folders; **controllers** and **screens**. **controllers** is where the business logic of each screen are stored, while, **screens** are the UI displayed to the user in the app.
 
-### Architectural Design
+## App Design
+
+This section aims to help the one assessing this, understand the thought process, design and every other thing concerning the app
 
 ## Conclusion
 
