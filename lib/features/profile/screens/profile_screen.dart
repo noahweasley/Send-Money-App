@@ -18,11 +18,13 @@ class ProfileScreen extends GetView<DashboardController> {
       backgroundColor: AppColor.background,
       body: AnnotatedStatusBar(
         child: SafeArea(
-          child: Column(
-            children: [
-              _buildProfileImage(),
-              _buildSavingsInfo(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildProfileImage(),
+                _buildSavingsInfo(),
+              ],
+            ),
           ),
         ),
       ),
@@ -34,32 +36,36 @@ class ProfileScreen extends GetView<DashboardController> {
       padding: const EdgeInsets.all(Dimensions.space2),
       child: SizedBox(
         width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Total Savings',
-                style: AppStyle.title,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Total Savings',
+              style: AppStyle.title,
+            ),
+            const SizedBox(height: Dimensions.space1),
+            Obx(() {
+              return Text(
+                controller.balance,
+                style: AppStyle.headline3PrimaryDark,
+              );
+            }),
+            const SizedBox(height: Dimensions.space3),
+            Center(
+              child: Text(
+                'Statistics',
+                style: AppStyle.headline5,
               ),
-              const SizedBox(height: Dimensions.space1),
-              Obx(() {
-                return Text(
-                  controller.balance,
-                  style: AppStyle.headline3PrimaryDark,
-                );
-              }),
-              const SizedBox(height: Dimensions.space3),
-              Center(
-                child: Text(
-                  'Statistics',
-                  style: AppStyle.headline5,
-                ),
-              ),
-              const SizedBox(height: Dimensions.space2),
-              StatsBarChart(data: controller.transactions),
-            ],
-          ),
+            ),
+            const SizedBox(height: Dimensions.space2),
+            Obx(() {
+              return Visibility(
+                visible: !controller.isTransactionLoading,
+                child: StatsBarChart(controller: controller),
+              );
+            }),
+            const SizedBox(height: Dimensions.space6),
+          ],
         ),
       ),
     );

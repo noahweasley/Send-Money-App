@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 import 'package:veegil/core/utilities/currency_format.dart';
 
 part 'transaction_history_response.g.dart';
@@ -67,4 +69,9 @@ class Transaction {
   static int Function(Transaction, Transaction) sortByMonthly = (a, b) => a.created.month.compareTo(b.created.month);
 
   static int Function(Transaction, Transaction) sortByYearly = (a, b) => a.created.year.compareTo(b.created.year);
+
+  @override
+  String toString() {
+    return 'Transaction(amount: $amount, balance: $balance, type: $type, phoneNumber: $phoneNumber, created: $created)';
+  }
 }

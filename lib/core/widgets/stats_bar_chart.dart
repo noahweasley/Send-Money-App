@@ -1,65 +1,33 @@
+import 'dart:math' as math;
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
-import 'package:veegil/core/constants/colors.dart';
+import 'package:veegil/core/constants/app_style.dart';
+import 'package:veegil/core/constants/dimensions.dart';
+import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
 
-class StatsBarChart extends StatefulWidget {
-  final List<Transaction> data;
+class StatsBarChart extends StatelessWidget {
+  final DashboardController controller;
 
   const StatsBarChart({
     super.key,
-    required this.data,
+    required this.controller,
   });
 
   @override
-  State<StatefulWidget> createState() => BarChartSample2State();
-}
-
-class BarChartSample2State extends State<StatsBarChart> {
-  final double width = 7;
-
-  late List<BarChartGroupData> rawBarGroups;
-  late List<BarChartGroupData> showingBarGroups;
-
-  @override
-  void initState() {
-    super.initState();
-    final barGroup1 = makeGroupData(0, 5, 12);
-    final barGroup2 = makeGroupData(1, 16, 12);
-    final barGroup3 = makeGroupData(2, 18, 5);
-    final barGroup4 = makeGroupData(3, 20, 16);
-    final barGroup5 = makeGroupData(4, 17, 6);
-    final barGroup6 = makeGroupData(5, 19, 1.5);
-    final barGroup7 = makeGroupData(6, 10, 1.5);
-
-    final items = [
-      barGroup1,
-      barGroup2,
-      barGroup3,
-      barGroup4,
-      barGroup5,
-      barGroup6,
-      barGroup7,
-    ];
-
-    rawBarGroups = items;
-
-    showingBarGroups = rawBarGroups;
-  }
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 1,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(Dimensions.space1),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: BarChart(
                 BarChartData(
-                  maxY: 20,
+                  maxY: 50,
                   barTouchData: BarTouchData(
                     touchTooltipData: BarTouchTooltipData(
                       tooltipBgColor: Colors.grey,
@@ -78,13 +46,13 @@ class BarChartSample2State extends State<StatsBarChart> {
                       sideTitles: SideTitles(
                         showTitles: true,
                         getTitlesWidget: bottomTitles,
-                        reservedSize: 42,
+                        reservedSize: 58,
                       ),
                     ),
                     leftTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: true,
-                        reservedSize: 28,
+                        reservedSize: 42,
                         interval: 1,
                         getTitlesWidget: leftTitles,
                       ),
@@ -93,7 +61,7 @@ class BarChartSample2State extends State<StatsBarChart> {
                   borderData: FlBorderData(
                     show: false,
                   ),
-                  barGroups: showingBarGroups,
+                  barGroups: controller.showingBarGroups,
                   gridData: const FlGridData(show: false),
                 ),
               ),
@@ -105,110 +73,45 @@ class BarChartSample2State extends State<StatsBarChart> {
   }
 
   Widget leftTitles(double value, TitleMeta meta) {
-    const style = TextStyle(
-      color: Color(0xff7589a2),
-      fontWeight: FontWeight.bold,
-      fontSize: 14,
-    );
     String text;
     if (value == 0) {
-      text = '1K';
+      text = '0';
     } else if (value == 10) {
-      text = '5K';
-    } else if (value == 19) {
-      text = '10K';
+      text = '10';
+    } else if (value == 20) {
+      text = '20';
+    } else if (value == 30) {
+      text = '30';
+    } else if (value == 40) {
+      text = '40';
+    } else if (value == 49) {
+      text = '50';
     } else {
       return Container();
     }
+
     return SideTitleWidget(
       axisSide: meta.axisSide,
-      space: 0,
-      child: Text(text, style: style),
+      space: Dimensions.space1,
+      child: Text(
+        text,
+        style: AppStyle.subtitle1PrimaryTint,
+      ),
     );
   }
 
   Widget bottomTitles(double value, TitleMeta meta) {
-    final titles = <String>['Mn', 'Te', 'Wd', 'Tu', 'Fr', 'St', 'Su'];
-
-    final Widget text = Text(
-      titles[value.toInt()],
-      style: const TextStyle(
-        color: Color(0xff7589a2),
-        fontWeight: FontWeight.bold,
-        fontSize: 14,
-      ),
-    );
+    final titles = <String>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16, //margin top
-      child: text,
-    );
-  }
-
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
-    return BarChartGroupData(
-      barsSpace: 4,
-      x: x,
-      barRods: [
-        BarChartRodData(
-          toY: y1,
-          color: AppColor.primaryMain,
-          width: width,
-        ),
-        BarChartRodData(
-          toY: y2,
-          color: AppColor.red,
-          width: width,
-        ),
-      ],
-    );
-  }
-
-  Widget makeTransactionsIcon() {
-    const width = 4.5;
-    const space = 3.5;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Container(
-          width: width,
-          height: 10,
-          color: Colors.white.withOpacity(0.4),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 28,
-          color: Colors.white.withOpacity(0.8),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 42,
-          color: Colors.white.withOpacity(1),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 28,
-          color: Colors.white.withOpacity(0.8),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 10,
-          color: Colors.white.withOpacity(0.4),
-        ),
-      ],
-    );
+        axisSide: meta.axisSide,
+        space: Dimensions.space3,
+        child: Transform.rotate(
+          angle: math.pi / 4,
+          child: Text(
+            titles[value.toInt()],
+            style: AppStyle.subtitle1PrimaryDark,
+          ),
+        ));
   }
 }

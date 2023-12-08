@@ -1,10 +1,12 @@
 import 'package:collection/collection.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/repositories/transaction_repository.dart';
 import 'package:veegil/api/repositories/user_info_repository.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
+import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/navigation/app_routes.dart';
 import 'package:veegil/core/utilities/currency_format.dart';
 import 'package:veegil/core/utilities/extensions/error_extension.dart';
@@ -17,6 +19,7 @@ class DashboardController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
   final _isUserDetailsLoading = true.obs;
+
   bool get isUserDetailsLoading => _isUserDetailsLoading.value;
   set isUserDetailsLoading(bool value) => _isUserDetailsLoading.value = value;
 
@@ -43,6 +46,10 @@ class DashboardController extends GetxController {
   final _transactions = <Transaction>[].obs;
   List<Transaction> get transactions => _transactions;
   set transactions(List<Transaction> value) => _transactions.value = value;
+
+  final _showingBarGroups = <BarChartGroupData>[].obs;
+  List<BarChartGroupData> get showingBarGroups => _showingBarGroups;
+  set showingBarGroups(List<BarChartGroupData> value) => _showingBarGroups.value = value;
 
   @override
   void onInit() {
@@ -151,6 +158,7 @@ class DashboardController extends GetxController {
         if (userData.isNotEmpty) {
           // show filtered list
           transactions = userData.toList();
+          showChart();
         } else {
           // if for any reason API doesn't have any record of user phone number
           throw Exception('User account for $accountNumber was not found, please sign-up');
@@ -164,5 +172,52 @@ class DashboardController extends GetxController {
     } finally {
       isTransactionLoading = false;
     }
+  }
+
+  void showChart() {
+    for (int x = DateTime.january; x <= DateTime.december; x++) {
+      showingBarGroups.add(makeGroupData(x));
+    }
+  }
+
+  BarChartGroupData makeGroupData(int month) {
+    final transactions = getTransactionsForMonth(month);
+    final y1 = transactions[0];
+    final y2 = transactions[1];
+
+    return BarChartGroupData(
+      barsSpace: 6,
+      x: month - 1,
+      barRods: [
+        BarChartRodData(
+          toY: y1,
+          color: AppColor.primaryMain,
+          width: 12,
+        ),
+        BarChartRodData(
+          toY: y2,
+          color: AppColor.red,
+          width: 12,
+        ),
+      ],
+    );
+  }
+
+  List<double> getTransactionsForMonth(int month) {
+    int debits = 0;
+    int credits = 0;
+
+    for (var trans in transactions) {
+      print('month: ${trans.created.month}');
+      if (trans.created.month == month) {
+        if (trans.type == Transaction.debit) {
+          debits++;
+        } else if (trans.type == Transaction.credit) {
+          credits++;
+        }
+      }
+    }
+    print('The credit: $credits, Debits $debits');
+    return [credits.toDouble(), debits.toDouble()];
   }
 }

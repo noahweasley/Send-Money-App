@@ -51,7 +51,7 @@ class DashboardScreen extends GetView<DashboardController> {
     return Padding(
       padding: const EdgeInsets.all(Dimensions.space1),
       child: SizedBox(
-        height: 200.h,
+        height: 230.h,
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(Dimensions.space2),
