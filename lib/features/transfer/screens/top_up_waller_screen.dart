@@ -20,82 +20,74 @@ class TopupWalletScreen extends GetView<TopupWalletController> {
     SizeConfig.init(context);
 
     return SafeArea(
-      child: PopScope(
-        canPop: true,
-        onPopInvoked: (_) async {
-          controller.giveResults();
-          return;
-        },
-        child: Scaffold(
-          backgroundColor: AppColor.background,
-          appBar: CustomAppBar(
-            onNavigateUp: controller.giveResults,
-            title: Text(
-              'Top up',
-              style: AppStyle.title,
-            ),
+      child: Scaffold(
+        backgroundColor: AppColor.background,
+        appBar: CustomAppBar(
+          title: Text(
+            'Top up',
+            style: AppStyle.title,
           ),
-          body: Obx(() {
-            return OverlayIndeterminateProgress(
-              isLoading: controller.isLoading,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Divider(
-                      thickness: 1,
-                      color: AppColor.primaryTint,
-                    ),
-                    const SizedBox(height: Dimensions.space1),
-                    Padding(
-                      padding: const EdgeInsets.all(Dimensions.space2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: Dimensions.space3),
-                            child: AppLogo(),
-                          ),
-                          Text(
-                            'Top up your Veegil Bank Account',
-                            textAlign: TextAlign.center,
-                            style: AppStyle.headline5PrimaryDark,
-                          ),
-                          const SizedBox(height: Dimensions.space6),
-                          Form(
-                            key: controller.formKey,
-                            child: AppTextField(
-                              controller: controller.amountController,
-                              title: 'Enter amount',
-                              hintText: 'Type amount here',
-                              validator: EmptyStringValidator.validate,
-                            ),
-                          ),
-                          const SizedBox(height: Dimensions.minSpace),
-                          Padding(
-                            padding: const EdgeInsets.only(left: Dimensions.space1),
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                controller.walletBalance,
-                                style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: Dimensions.space2),
-                          AppButton(
-                            text: 'Top up',
-                            onTap: controller.topupWallet,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }),
         ),
+        body: Obx(() {
+          return OverlayIndeterminateProgress(
+            isLoading: controller.isLoading,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Divider(
+                    thickness: 1,
+                    color: AppColor.primaryTint,
+                  ),
+                  const SizedBox(height: Dimensions.space1),
+                  Padding(
+                    padding: const EdgeInsets.all(Dimensions.space2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: Dimensions.space3),
+                          child: AppLogo(),
+                        ),
+                        Text(
+                          'Top up your Veegil Bank Account',
+                          textAlign: TextAlign.center,
+                          style: AppStyle.headline5PrimaryDark,
+                        ),
+                        const SizedBox(height: Dimensions.space6),
+                        Form(
+                          key: controller.formKey,
+                          child: AppTextField(
+                            controller: controller.amountController,
+                            title: 'Enter amount',
+                            hintText: 'Type amount here',
+                            validator: EmptyStringValidator.validate,
+                          ),
+                        ),
+                        const SizedBox(height: Dimensions.minSpace),
+                        Padding(
+                          padding: const EdgeInsets.only(left: Dimensions.space1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              controller.walletBalance,
+                              style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: Dimensions.space2),
+                        AppButton(
+                          text: 'Top up',
+                          onTap: controller.topupWallet,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }),
       ),
     );
   }

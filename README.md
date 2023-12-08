@@ -223,6 +223,10 @@ This screen aims to visualize the monthly spending of the registered user
 - User name wasn't provided, so a default 'User' was displayed on dashboard and on the profile. The edit icon on profile doesn't do anything, that was supposed to be implemented, but time didn't allow it
 - App was built using the default keystore file, for a real app, the app would be signed with a normal keystore file, before uploaded for release
 
+## Known Bugs
+
+* Navigating back might be an Issue for the Transfer, Withdraw and Top up Screen. I tried to fix it, but the fix was not tested
+
 ## Conclusion
 
 This readme provides a brief overview of the Flutter project, including setup instructions, project structure, and additional resources.

@@ -20,93 +20,85 @@ class TransferScreen extends GetView<TransferController> {
     SizeConfig.init(context);
 
     return SafeArea(
-      child: PopScope(
-        canPop: true,
-        onPopInvoked: (_) async {
-          controller.giveResults();
-          return;
-        },
-        child: Scaffold(
-          backgroundColor: AppColor.background,
-          appBar: CustomAppBar(
-            title: Text(
-              'Transfer',
-              style: AppStyle.title,
-            ),
-            onNavigateUp: controller.giveResults,
+      child: Scaffold(
+        backgroundColor: AppColor.background,
+        appBar: CustomAppBar(
+          title: Text(
+            'Transfer',
+            style: AppStyle.title,
           ),
-          body: Obx(() {
-            return OverlayIndeterminateProgress(
-              isLoading: controller.isProcessing,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Divider(
-                      thickness: 1,
-                      color: AppColor.primaryTint,
-                    ),
-                    const SizedBox(height: Dimensions.space1),
-                    Padding(
-                      padding: const EdgeInsets.all(Dimensions.space2),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: Dimensions.space3),
-                            child: AppLogo(),
-                          ),
-                          Text(
-                            'Effortless Cash Transfers with Veegil, try it!',
-                            textAlign: TextAlign.center,
-                            style: AppStyle.headline5PrimaryDark,
-                          ),
-                          const SizedBox(height: Dimensions.space6),
-                          Form(
-                            key: controller.formKey,
-                            child: Column(
-                              children: [
-                                AppTextField(
-                                  controller: controller.phoneNumberTextController,
-                                  title: 'Account Number',
-                                  hintText: 'Enter Account number / Phone number',
-                                  validator: PhoneNumberValidator.validate,
-                                ),
-                                const SizedBox(height: Dimensions.minSpace),
-                                AppTextField(
-                                  controller: controller.amountController,
-                                  title: 'Amount',
-                                  hintText: 'Enter amount',
-                                  validator: EmptyStringValidator.validate,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: Dimensions.minSpace),
-                          Padding(
-                            padding: const EdgeInsets.only(left: Dimensions.space1),
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                controller.walletBalance,
-                                style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: Dimensions.space2),
-                          AppButton(
-                            text: 'Send',
-                            onTap: controller.transfer,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }),
         ),
+        body: Obx(() {
+          return OverlayIndeterminateProgress(
+            isLoading: controller.isProcessing,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Divider(
+                    thickness: 1,
+                    color: AppColor.primaryTint,
+                  ),
+                  const SizedBox(height: Dimensions.space1),
+                  Padding(
+                    padding: const EdgeInsets.all(Dimensions.space2),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: Dimensions.space3),
+                          child: AppLogo(),
+                        ),
+                        Text(
+                          'Effortless Cash Transfers with Veegil, try it!',
+                          textAlign: TextAlign.center,
+                          style: AppStyle.headline5PrimaryDark,
+                        ),
+                        const SizedBox(height: Dimensions.space6),
+                        Form(
+                          key: controller.formKey,
+                          child: Column(
+                            children: [
+                              AppTextField(
+                                controller: controller.phoneNumberTextController,
+                                title: 'Account Number',
+                                hintText: 'Enter Account number / Phone number',
+                                validator: PhoneNumberValidator.validate,
+                              ),
+                              const SizedBox(height: Dimensions.minSpace),
+                              AppTextField(
+                                controller: controller.amountController,
+                                title: 'Amount',
+                                hintText: 'Enter amount',
+                                validator: EmptyStringValidator.validate,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: Dimensions.minSpace),
+                        Padding(
+                          padding: const EdgeInsets.only(left: Dimensions.space1),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              controller.walletBalance,
+                              style: AppStyle.subtitle2.apply(color: AppColor.primaryTint),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: Dimensions.space2),
+                        AppButton(
+                          text: 'Send',
+                          onTap: controller.transfer,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }),
       ),
     );
   }
