@@ -177,29 +177,45 @@ This section aims to help the one assessing this, understand the thought process
 
 This screen aims to help user view the features of the app
 
+![On boarding screen](screenshots/Onboarding.png "On boarding screen")
+
 ### Authentication (Login and Signup)
 
 This screen aims to help user login and signup
+
+![Login Screen](screenshots/Login.png "Login Screen")
+
+![alt text](screenshots/Signup.png "Sign up")
 
 ### Withdrawal
 
 This demo screen was just an addition, and does not apply to a real world application, to see how withdrawal could be done in a real app
 
+![Withdrawal Screen](screenshots/Withdraw.png "Withdrawal Screen")
+
 ### Top-up
 
 This screen aims to help user top-up their account
+
+![Top up screen](screenshots/Top%20up.png "Top up")
 
 ### Transfer
 
 Users can transfer to other Veegil user and the money is debited from their account
 
+![Transfer screen](screenshots/Transfer.png "Transfer Screen")
+
 ### Transaction History
 
 This screen aims let user view their transaction history
 
+![Transaction History](screenshots/History.png "Transaction History")
+
 ### Visualization of Transaction History
 
 This screen aims to visualize the monthly spending of the registered user
+
+![Profile and Visualizations](screenshots/Profile.png "Profile and Visualization")
 
 ## Setbacks because of Time limit and Bugs noticed on the API
 
