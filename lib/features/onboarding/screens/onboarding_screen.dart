@@ -6,7 +6,6 @@ import 'package:veegil/core/constants/app_style.dart';
 import 'package:veegil/core/constants/colors.dart';
 import 'package:veegil/core/constants/dimensions.dart';
 import 'package:veegil/core/utilities/size_config.dart';
-import 'package:veegil/core/widgets/app_bar.dart';
 import 'package:veegil/core/widgets/app_button.dart';
 import 'package:veegil/features/onboarding/controllers/onboarding_controller.dart';
 

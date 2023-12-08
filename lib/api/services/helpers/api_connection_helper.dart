@@ -30,15 +30,15 @@ class ApiConnectionHelper {
     ),
   )..interceptors.addAll([
       AppInterceptors(),
-      // PrettyDioLogger(
-      //   requestHeader: true,
-      //   requestBody: true,
-      //   responseBody: true,
-      //   responseHeader: true,
-      //   error: true,
-      //   compact: true,
-      //   maxWidth: 90,
-      // ),
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: true,
+        error: true,
+        compact: true,
+        maxWidth: 90,
+      ),
     ]);
 
   /// GET request

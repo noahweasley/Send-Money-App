@@ -1,5 +1,4 @@
 import 'package:veegil/api/services/resources/managers/session_constants.dart';
-import 'package:veegil/api/services/responses/login_response/login_response.dart';
 import 'package:veegil/core/database/database.dart';
 
 class SessionManager {
@@ -61,22 +60,5 @@ class SessionManager {
       SessionConstants.userName,
       SessionConstants.userAccountBalance,
     ]);
-  }
-
-  // TODO: Remove after deleting Services class
-  static LoginResponse? getLoginDetails() {
-    final _ = isUserLoggedIn();
-
-    if (_) {
-      final userData = db.getData(SessionConstants.loggingDetails, null);
-
-      return LoginResponse.fromJson(userData);
-    }
-    return null;
-  }
-
-  // TODO: Remove after deleting Services class
-  static void setLoginDetails(LoginResponse loginResponse) async {
-    db.setData(SessionConstants.loggingDetails, loginResponse.toJson().toString());
   }
 }

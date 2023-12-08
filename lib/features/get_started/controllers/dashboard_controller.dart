@@ -208,7 +208,6 @@ class DashboardController extends GetxController {
     int credits = 0;
 
     for (var trans in transactions) {
-      print('month: ${trans.created.month}');
       if (trans.created.month == month) {
         if (trans.type == Transaction.debit) {
           debits++;
@@ -217,7 +216,6 @@ class DashboardController extends GetxController {
         }
       }
     }
-    print('The credit: $credits, Debits $debits');
     return [credits.toDouble(), debits.toDouble()];
   }
 }

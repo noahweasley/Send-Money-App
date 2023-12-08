@@ -29,7 +29,6 @@ class DashboardScreen extends GetView<DashboardController> {
           child: RefreshIndicator(
             onRefresh: controller.refreshPage,
             child: SingleChildScrollView(
-              // TODO: Optimize Obx using here
               child: Obx(() {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
