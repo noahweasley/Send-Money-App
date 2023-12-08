@@ -6,7 +6,7 @@ This README file provides an overview of the Banking App with features included 
 
 ### Name
 
-- Ebenmelu Ifechukwu Emmanuel - [LinkedIn](https://www.linkedin.com/in/ebenmelu-ifechukwu/ "View my linkedIn profile")
+- Ebenmelu Ifechukwu Noah - [LinkedIn](https://www.linkedin.com/in/ebenmelu-ifechukwu/ "View my linkedIn profile")
 - Ebenmelu Ifechukwu - Indeed
 
 ### Contact Details
@@ -21,10 +21,6 @@ Mobile Application Developer with a little over 1 year working experience using 
 ### Relevant Skills
 
 Dart, Java, Kotlin, Flutter, Android S.D.K, Git, GitHub Actions...
-
-## Resume
-
-View my resume here
 
 ## Project Overview
 
@@ -58,11 +54,13 @@ To get started with the project, follow the steps below:
    ```
    git clone https://gitlab.com/noahweasley/veegil.git
    ```
+
 2. Navigate to the project directory:
 
    ```
    cd veegil
    ```
+
 3. Fetch the dependencies by running the following command:
 
    ```
@@ -88,6 +86,7 @@ These are some of the tools used to build the application:
   ```
 
   To run the build runner and watch for future changes.
+
 - Run launcher icon generation, flutter_launcher_icons package was used by running the command below:
 
   ```shell
@@ -173,6 +172,42 @@ _Where_:
 ## App Design
 
 This section aims to help the one assessing this, understand the thought process, design and every other thing concerning the app
+
+### On boarding screen
+
+This screen aims to help user view the features of the app
+
+### Authentication (Login and Signup)
+
+This screen aims to help user login and signup
+
+### Withdrawal
+
+This demo screen was just an addition, and does not apply to a real world application, to see how withdrawal could be done in a real app
+
+### Top-up
+
+This screen aims to help user top-up their account
+
+### Transfer
+
+Users can transfer to other Veegil user and the money is debited from their account
+
+### Transaction History
+
+This screen aims let user view their transaction history
+
+### Visualization of Transaction History
+
+This screen aims to visualize the monthly spending of the registered user
+
+## Setbacks because of Time limit and Bugs noticed on the API
+
+- Withdraw gives false time, hence UI transaction history displays incorrect data
+
+- Had to perform Transaction and withdraw on app, so if network fails during transfer, app might transfer to user and not deduct money from user account
+
+- User transaction history isn't sorted from newest to oldest transactions, I had to do that
 
 ## Conclusion
 
