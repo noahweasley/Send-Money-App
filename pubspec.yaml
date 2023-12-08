@@ -29,16 +29,6 @@ dependencies:
   pretty_dio_logger: ^1.3.1
   collection: ^1.17.2
   hive_generator: ^2.0.1
-  # Remove
-  shared_preferences: ^2.0.15
-  # Remove
-  provider: ^6.0.3
-  # Remove
-  email_validator: ^2.1.17
-  # Remove
-  dots_indicator: ^2.1.0
-  # Remove
-  http: ^0.13.5
   get: ^4.6.6
   flutter_sticky_header: ^0.6.5
   shimmer: ^3.0.0
