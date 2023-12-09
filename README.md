@@ -43,7 +43,8 @@ To get started with the project, follow the steps below:
 
 ### Prerequisites
 
-- **Flutter SDK**: Install the latest stable version of Flutter. The project uses this constraints: SDK >=2.19.6 < 3.0.0
+- **Flutter SDK**: Install the latest stable version of Flutter. The project uses this constraints: SDK >=3.0.5 <4.0.0. But installing the latest version of Flutter would run everything just fine.
+- **Android Tools**: The app targets Android API level **30** (this should have been updated to target the latest, but time didn't allow for that), so ensure that you have installed Android command line tools and everything related to it using Android Studio
 - **Dart**: Ensure you have Dart programming language installed along with the Flutter SDK.
 - **IDE**: Choose an Integrated Development Environment (IDE) for Flutter development.
 
@@ -99,6 +100,8 @@ flutter run
 ```
 
 _This will launch the application on an available emulator or connected device_
+
+Visit this page: [How to Run Flutter app on android emulator](https://docs.flutter.dev/get-started/test-drive)
 
 ## Testing
 
