@@ -213,7 +213,7 @@ This screen aims let user view their transaction history
 
 ### Visualization of Transaction History
 
-This screen aims to visualize the monthly spending of the registered user
+This screen aims to visualize the monthly spending of the registered user. The blue bars in the bar chart represents the credits for a single month, while the red bar represents the debit for a single month
 
 ![Profile and Visualizations](screenshots/Profile.png "Profile and Visualization")
 
