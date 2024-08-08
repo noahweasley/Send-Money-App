@@ -1,41 +1,6 @@
-# Veegil
+# SendMoney Bank App
 
 This README file provides an overview of the Banking App with features included as instructions stated below developed for the technical assessment at Veegil Technologies
-
-## Candidate Details
-
-### Name
-
-- Ebenmelu Ifechukwu Noah - [LinkedIn](https://www.linkedin.com/in/ebenmelu-ifechukwu/ "View my linkedIn profile")
-- Ebenmelu Ifechukwu - Indeed
-
-### Contact Details
-
-- [iebenmelu@gmail.com](mailto:iebenmelu@gmail.com "Send an email")
-- [07065478947](tel:+2347065478947 "Call me")
-
-### Work
-
-Mobile Application Developer with a little over 1 year working experience using Flutter and Dart, and in the past, have worked as a Native Android developer building high performant native Android applications. I have been building Native Android applications for years because I am passionate about android apps, before I discovered cross-platform development mobile app development using Flutter
-
-### Relevant Skills
-
-Dart, Java, Kotlin, Flutter, Android S.D.K, Git, GitHub Actions...
-
-## Project Overview
-
-This project is aimed at building a cross-platform mobile banking application using the Flutter framework.
-
-## Instructions
-
-Decide on the required screens for the application using the following user stories.
-
-- Users should be able to sign up and login into their account. Users' phone numbers represent their account number
-- Users should be able to deposit and send out money to others
-- Users should be able to view a visualization that shows deposit and withdrawal history
-- Users should be able to view the list of transactions
-
-_Deadline: December 8, 2023 (23:59 PM) Nigerian Time_
 
 ## Getting Started
 
@@ -215,20 +180,6 @@ This screen aims let user view their transaction history
 
 This screen aims to visualize the monthly spending of the registered user. The blue bars in the bar chart represents the credits for a single month, while the red bar represents the debit for a single month
 
-![Profile and Visualizations](screenshots/Profile.png "Profile and Visualization")
-
-## Setbacks because of Time limit and Bugs noticed on the API
-
-- Withdraw gives false time, hence UI transaction history displays incorrect data
-- Had to perform Transaction and withdraw on app, so if network fails during transfer, app might transfer to user and not deduct money from user account
-- User transaction history isn't sorted from newest to oldest transactions, I had to do that
-- Naira sign migth not display correctly, the font 'Lato' that was used didn't display the naira  on the emulator, but works on Web. Time constraints didn't allow to look for a better font
-- User name wasn't provided, so a default 'User' was displayed on dashboard and on the profile. The edit icon on profile doesn't do anything, that was supposed to be implemented, but time didn't allow it
-- App was built using the default keystore file, for a real app, the app would be signed with a normal keystore file, before uploaded for release
-
-## Known Bugs
-
-* Navigating back might be an Issue for the Transfer, Withdraw and Top up Screen. I tried to fix it, but the fix was not tested
 
 ## Conclusion
 
