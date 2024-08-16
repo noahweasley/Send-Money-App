@@ -4,7 +4,18 @@
   "description": "Node JS backend for SendMoney mobile application\\",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest .",
+    "eslint:base": "eslint --ignore-path .gitignore",
+    "prettier:base": "prettier --ignore-path .gitignore",
+    "lint:eslint": "npm run eslint:base -- --max-warnings 0 \"**/*.{js,ts,tsx,mdx}\"",
+    "lint:spellcheck": "cspell . --gitignore --show-suggestions --no-progress",
+    "lint:eslint-config-prettier": "eslint --print-config .eslintrc | eslint-config-prettier-check",
+    "lint:start": "npm run lint && npm run start",
+    "lint": "npm run lint:spellcheck && npm run lint:eslint",
+    "format:prettier": "npm run prettier:base -- --write \"**/*.{js,ts,tsx,json,md,mdx,css,html}\"",
+    "format:eslint": "npm run eslint:base -- --fix \"**/*.{js,ts,tsx,mdx}\"",
+    "format": "npm run format:eslint && npm run format:prettier"
   },
   "author": "noahweasley",
   "license": "ISC",
