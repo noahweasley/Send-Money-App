@@ -1,7 +1,7 @@
 {
   "name": "send-money-backend",
   "version": "1.0.0",
-  "description": "Node JS backend for SendMoney mobile application\\",
+  "description": "Node JS backend for SendMoney mobile application",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
