@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 import 'package:get/get.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/constants/assets.dart';
