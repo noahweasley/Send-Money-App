@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart' hide CarouselController;
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
 import 'package:veegil/core/constants/assets.dart';
@@ -8,7 +8,7 @@ import 'package:veegil/features/onboarding/screens/onboarding_items.dart';
 
 class OnBoardingController extends GetxController {
   final currentIndex = 0.obs;
-  final pageController = CarouselController();
+  final pageController = CarouselSliderController();
 
   final List<OnBoardingItem> onBoardingItems = [
     OnBoardingItem(
