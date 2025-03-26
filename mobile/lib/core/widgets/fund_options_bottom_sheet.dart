@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widgets/notifiers.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/widgets/notifiers.dart';
 
 class _FundOptionsBottomSheet extends StatelessWidget {
   final String bankName, accountNumber;
@@ -175,7 +175,7 @@ class _FundOptionsBottomSheet extends StatelessWidget {
                           color: AppColor.dark,
                         ),
                         title: Text(
-                          'Fund direct using Veegil Topup',
+                          'Fund direct using send_money_app Topup',
                           style: AppStyle.subtitle2.bold,
                         ),
                       ),

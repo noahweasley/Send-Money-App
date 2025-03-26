@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/navigation/app_routes.dart';
-import 'package:veegil/core/utilities/size_config.dart';
-import 'package:veegil/core/validators/validators.dart';
-import 'package:veegil/core/widgets/app_bar.dart';
-import 'package:veegil/core/widgets/app_button.dart';
-import 'package:veegil/core/widgets/app_icon.dart';
-import 'package:veegil/core/widgets/app_textfield.dart';
-import 'package:veegil/core/widgets/overlay_indeterminate_progress.dart';
-import 'package:veegil/core/widgets/password_strength_bar.dart';
-import 'package:veegil/features/authentication/controllers/signup_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/navigation/app_routes.dart';
+import 'package:send_money_app/core/utilities/size_config.dart';
+import 'package:send_money_app/core/validators/validators.dart';
+import 'package:send_money_app/core/widgets/app_bar.dart';
+import 'package:send_money_app/core/widgets/app_button.dart';
+import 'package:send_money_app/core/widgets/app_icon.dart';
+import 'package:send_money_app/core/widgets/app_textfield.dart';
+import 'package:send_money_app/core/widgets/overlay_indeterminate_progress.dart';
+import 'package:send_money_app/core/widgets/password_strength_bar.dart';
+import 'package:send_money_app/features/authentication/controllers/signup_controller.dart';
 
 class SignupScreen extends GetView<SignupController> {
   const SignupScreen({super.key});
@@ -21,89 +21,87 @@ class SignupScreen extends GetView<SignupController> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
 
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: AppColor.background,
-        appBar: CustomAppBar(
-          title: Text(
-            'Sign up',
-            style: AppStyle.title,
-          ),
+    return Scaffold(
+      backgroundColor: AppColor.background,
+      appBar: CustomAppBar(
+        title: Text(
+          'Sign up',
+          style: AppStyle.title,
         ),
-        body: Obx(() {
-          return OverlayIndeterminateProgress(
-              isLoading: controller.isLoading,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Divider(
-                      thickness: 1,
-                      color: AppColor.primaryTint,
-                    ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const SizedBox(height: Dimensions.space1),
-                          Padding(
-                            padding: const EdgeInsets.all(Dimensions.space2),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(bottom: Dimensions.space3),
-                                    child: AppLogo(),
-                                  ),
-                                  Text(
-                                    'Create your Veegil Account',
-                                    textAlign: TextAlign.center,
-                                    style: AppStyle.headline5PrimaryDark,
-                                  ),
-                                  const SizedBox(height: Dimensions.space6),
-                                  _buildRegistrationForm(),
-                                  const SizedBox(height: Dimensions.space1),
-                                  Obx(() {
-                                    return AppButton(
-                                      showLoader: controller.isLoading,
-                                      text: 'Sign up',
-                                      onTap: controller.signup,
-                                    );
-                                  }),
-                                  const SizedBox(height: Dimensions.space2),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Already have an account?',
-                                        style: AppStyle.body1,
-                                      ),
-                                      const SizedBox(width: Dimensions.minSpace),
-                                      InkWell(
-                                        borderRadius: BorderRadius.circular(Dimensions.borderRadius1),
-                                        onTap: () => Get.offNamed(Routes.login),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(Dimensions.space1),
-                                          child: Text(
-                                            'Login',
-                                            style: AppStyle.body1SecondaryDark,
-                                          ),
+      ),
+      body: Obx(() {
+        return OverlayIndeterminateProgress(
+            isLoading: controller.isLoading,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Divider(
+                    thickness: 1,
+                    color: AppColor.primaryTint,
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(height: Dimensions.space1),
+                        Padding(
+                          padding: const EdgeInsets.all(Dimensions.space2),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.only(bottom: Dimensions.space3),
+                                  child: AppLogo(),
+                                ),
+                                Text(
+                                  'Create your send_money_app Account',
+                                  textAlign: TextAlign.center,
+                                  style: AppStyle.headline5PrimaryDark,
+                                ),
+                                const SizedBox(height: Dimensions.space6),
+                                _buildRegistrationForm(),
+                                const SizedBox(height: Dimensions.space1),
+                                Obx(() {
+                                  return AppButton(
+                                    showLoader: controller.isLoading,
+                                    text: 'Sign up',
+                                    onTap: controller.signup,
+                                  );
+                                }),
+                                const SizedBox(height: Dimensions.space2),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Already have an account?',
+                                      style: AppStyle.body1,
+                                    ),
+                                    const SizedBox(width: Dimensions.minSpace),
+                                    InkWell(
+                                      borderRadius: BorderRadius.circular(Dimensions.borderRadius1),
+                                      onTap: () => Get.offNamed(Routes.login),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(Dimensions.space1),
+                                        child: Text(
+                                          'Login',
+                                          style: AppStyle.body1SecondaryDark,
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ));
-        }),
-      ),
+                  ),
+                ],
+              ),
+            ));
+      }),
     );
   }
 

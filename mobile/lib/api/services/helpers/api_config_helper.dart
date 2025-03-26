@@ -1,8 +1,8 @@
-import 'package:veegil/api/services/enums/environment.dart';
+import 'package:send_money_app/api/services/enums/environment.dart';
 
 class ApiConfigHelper {
   static String getBaseUrlOnEnvironment(Environment environment) {
-    const defaultBaseUrl = 'https://bankapi.veegil.com/';
+    const defaultBaseUrl = 'https://bankapi.send_money_app.com/';
     String baseUrl;
 
     switch (environment) {
@@ -15,10 +15,7 @@ class ApiConfigHelper {
       case Environment.production:
         baseUrl = defaultBaseUrl;
         break;
-      default:
-        baseUrl = defaultBaseUrl; // fallback to staging base url
-        break;
-    }
+      }
 
     return baseUrl;
   }

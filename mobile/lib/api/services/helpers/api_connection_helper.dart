@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:veegil/api/services/enums/environment.dart';
-import 'package:veegil/api/services/helpers/api_config_helper.dart';
-import 'package:veegil/api/services/resources/interceptors/app_interceptors.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
+import 'package:send_money_app/api/services/enums/environment.dart';
+import 'package:send_money_app/api/services/helpers/api_config_helper.dart';
+import 'package:send_money_app/api/services/resources/interceptors/app_interceptors.dart';
+import 'package:send_money_app/api/services/resources/managers/session_manager.dart';
 
 class ApiConnectionHelper {
   static const Environment env = Environment.production;

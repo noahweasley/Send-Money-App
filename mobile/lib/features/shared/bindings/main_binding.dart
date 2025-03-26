@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-import 'package:veegil/features/authentication/controllers/login_controller.dart';
-import 'package:veegil/features/authentication/controllers/signup_controller.dart';
-import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
-import 'package:veegil/features/get_started/controllers/landing_page_controller.dart';
-import 'package:veegil/features/onboarding/controllers/onboarding_controller.dart';
-import 'package:veegil/features/transaction_history/controllers/history_controller.dart';
-import 'package:veegil/features/transfer/controllers/top_up_wallet_controller.dart';
-import 'package:veegil/features/transfer/controllers/transfer_controller.dart';
-import 'package:veegil/features/withdraw/controllers/withdraw_controller.dart';
+import 'package:send_money_app/features/authentication/controllers/login_controller.dart';
+import 'package:send_money_app/features/authentication/controllers/signup_controller.dart';
+import 'package:send_money_app/features/get_started/controllers/dashboard_controller.dart';
+import 'package:send_money_app/features/get_started/controllers/landing_page_controller.dart';
+import 'package:send_money_app/features/onboarding/controllers/onboarding_controller.dart';
+import 'package:send_money_app/features/transaction_history/controllers/history_controller.dart';
+import 'package:send_money_app/features/transfer/controllers/top_up_wallet_controller.dart';
+import 'package:send_money_app/features/transfer/controllers/transfer_controller.dart';
+import 'package:send_money_app/features/withdraw/controllers/withdraw_controller.dart';
 
 class MainBinding extends Bindings {
   @override

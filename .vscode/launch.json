@@ -4,7 +4,7 @@
       "name": "Launch",
       "type": "dart",
       "request": "launch",
-      "program": "bin/main.dart"
+      "program": "mobile/lib/main.dart"
     }
   ]
 }

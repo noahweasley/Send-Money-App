@@ -3,18 +3,18 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/navigation/app_routes.dart';
-import 'package:veegil/core/utilities/extensions/size_extensions.dart';
-import 'package:veegil/core/widgets/action_card.dart';
-import 'package:veegil/core/widgets/annotated_status_bar.dart';
-import 'package:veegil/core/widgets/empty_list.dart';
-import 'package:veegil/core/widgets/history_list_loading.dart';
-import 'package:veegil/core/widgets/list_shimmer.dart';
-import 'package:veegil/core/widgets/transaction_list_item.dart';
-import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/navigation/app_routes.dart';
+import 'package:send_money_app/core/utilities/extensions/size_extensions.dart';
+import 'package:send_money_app/core/widgets/action_card.dart';
+import 'package:send_money_app/core/widgets/annotated_status_bar.dart';
+import 'package:send_money_app/core/widgets/empty_list.dart';
+import 'package:send_money_app/core/widgets/history_list_loading.dart';
+import 'package:send_money_app/core/widgets/list_shimmer.dart';
+import 'package:send_money_app/core/widgets/transaction_list_item.dart';
+import 'package:send_money_app/features/get_started/controllers/dashboard_controller.dart';
 
 class DashboardScreen extends GetView<DashboardController> {
   const DashboardScreen({super.key});

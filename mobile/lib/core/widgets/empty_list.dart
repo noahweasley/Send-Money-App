@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/dimensions.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
 
 class EmptyList extends StatelessWidget {
   final String text;

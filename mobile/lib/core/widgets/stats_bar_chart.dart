@@ -2,9 +2,9 @@ import 'dart:math' as math;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/features/get_started/controllers/dashboard_controller.dart';
 
 class StatsBarChart extends StatelessWidget {
   final DashboardController controller;

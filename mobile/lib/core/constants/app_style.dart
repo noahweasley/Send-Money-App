@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/app_font.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/utilities/extensions/size_extensions.dart';
+import 'package:send_money_app/core/constants/app_font.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/utilities/extensions/size_extensions.dart';
 
 
 extension StyleExtension on TextStyle {

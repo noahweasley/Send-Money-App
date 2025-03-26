@@ -2,16 +2,16 @@ import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:veegil/api/repositories/transaction_repository.dart';
-import 'package:veegil/api/repositories/user_info_repository.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
-import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/navigation/app_routes.dart';
-import 'package:veegil/core/utilities/currency_format.dart';
-import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widgets/fund_options_bottom_sheet.dart';
-import 'package:veegil/core/widgets/notifiers.dart';
+import 'package:send_money_app/api/repositories/transaction_repository.dart';
+import 'package:send_money_app/api/repositories/user_info_repository.dart';
+import 'package:send_money_app/api/services/resources/managers/session_manager.dart';
+import 'package:send_money_app/api/services/responses/transaction_history_response/transaction_history_response.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/navigation/app_routes.dart';
+import 'package:send_money_app/core/utilities/currency_format.dart';
+import 'package:send_money_app/core/utilities/extensions/error_extension.dart';
+import 'package:send_money_app/core/widgets/fund_options_bottom_sheet.dart';
+import 'package:send_money_app/core/widgets/notifiers.dart';
 
 class DashboardController extends GetxController {
   final userInfoRepository = UserInfoRepository();
@@ -67,7 +67,7 @@ class DashboardController extends GetxController {
 
   Future<void> topup() async {
     await FundOptionsBottomSheet.show(
-      bankName: 'Veegil Bank',
+      bankName: 'send_money_app Bank',
       accountNumber: accountNumber,
       onOtherOptionsTap: () async {
         final results = await Get.toNamed(Routes.topUp);

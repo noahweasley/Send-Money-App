@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/utilities/size_config.dart';
-import 'package:veegil/core/validators/validators.dart';
-import 'package:veegil/core/widgets/app_bar.dart';
-import 'package:veegil/core/widgets/app_button.dart';
-import 'package:veegil/core/widgets/app_icon.dart';
-import 'package:veegil/core/widgets/app_textfield.dart';
-import 'package:veegil/core/widgets/overlay_indeterminate_progress.dart';
-import 'package:veegil/features/transfer/controllers/transfer_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/utilities/size_config.dart';
+import 'package:send_money_app/core/validators/validators.dart';
+import 'package:send_money_app/core/widgets/app_bar.dart';
+import 'package:send_money_app/core/widgets/app_button.dart';
+import 'package:send_money_app/core/widgets/app_icon.dart';
+import 'package:send_money_app/core/widgets/app_textfield.dart';
+import 'package:send_money_app/core/widgets/overlay_indeterminate_progress.dart';
+import 'package:send_money_app/features/transfer/controllers/transfer_controller.dart';
 
 class TransferScreen extends GetView<TransferController> {
   const TransferScreen({super.key});
@@ -50,7 +50,7 @@ class TransferScreen extends GetView<TransferController> {
                           child: AppLogo(),
                         ),
                         Text(
-                          'Effortless Cash Transfers with Veegil, try it!',
+                          'Effortless Cash Transfers with send_money_app, try it!',
                           textAlign: TextAlign.center,
                           style: AppStyle.headline5PrimaryDark,
                         ),

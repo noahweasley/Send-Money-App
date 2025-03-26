@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:veegil/core/app_init.dart';
-import 'package:veegil/core/navigation/app_router.dart';
-import 'package:veegil/features/shared/bindings/main_binding.dart';
+import 'package:send_money_app/core/app_init.dart';
+import 'package:send_money_app/core/navigation/app_router.dart';
+import 'package:send_money_app/features/shared/bindings/main_binding.dart';
 
 void main() async {
   await AppInitialization.setup();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       initialBinding: MainBinding(),
       initialRoute: AppRouter.initialRoute,
       getPages: AppRouter.pages,
-      title: 'Veegil',
+      title: 'Send Money App',
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:veegil/core/database/database.dart';
+import 'package:send_money_app/core/database/database.dart';
 
 /// a simple class that handles every app initializations
 class AppInitialization {

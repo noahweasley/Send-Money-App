@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:veegil/api/repositories/transaction_repository.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
-import 'package:veegil/core/utilities/currency_format.dart';
-import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/widgets/notifiers.dart';
+import 'package:send_money_app/api/repositories/transaction_repository.dart';
+import 'package:send_money_app/api/services/resources/managers/session_manager.dart';
+import 'package:send_money_app/core/utilities/currency_format.dart';
+import 'package:send_money_app/core/utilities/extensions/error_extension.dart';
+import 'package:send_money_app/core/widgets/notifiers.dart';
 
 class WithdrawController extends GetxController {
   final transactionRepository = TransactionRepository();

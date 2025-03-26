@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/app_font.dart';
+import 'package:send_money_app/core/constants/app_font.dart';
 
 class Themes {
   static const darkThemeCode = 0;

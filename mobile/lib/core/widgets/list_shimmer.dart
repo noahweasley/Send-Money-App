@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:veegil/core/constants/dimensions.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
 
 class ListShimmer extends StatelessWidget {
   final int itemCount;

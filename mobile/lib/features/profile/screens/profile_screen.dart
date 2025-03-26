@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widgets/annotated_status_bar.dart';
-import 'package:veegil/core/widgets/stats_bar_chart.dart';
-import 'package:veegil/features/get_started/controllers/dashboard_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/widgets/annotated_status_bar.dart';
+import 'package:send_money_app/core/widgets/stats_bar_chart.dart';
+import 'package:send_money_app/features/get_started/controllers/dashboard_controller.dart';
 
 class ProfileScreen extends GetView<DashboardController> {
   const ProfileScreen({super.key});

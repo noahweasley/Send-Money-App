@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
-import 'package:veegil/core/navigation/app_routes.dart';
-import 'package:veegil/features/authentication/screen/login.dart';
-import 'package:veegil/features/authentication/screen/sign_up.dart';
-import 'package:veegil/features/get_started/screen/dashboard_screen.dart';
-import 'package:veegil/features/get_started/screen/landing_page_screen.dart';
-import 'package:veegil/features/onboarding/screens/onboarding_screen.dart';
-import 'package:veegil/features/shared/bindings/main_binding.dart';
-import 'package:veegil/features/transaction_history/screens/transaction_history.dart';
-import 'package:veegil/features/transfer/screens/top_up_waller_screen.dart';
-import 'package:veegil/features/transfer/screens/transfer_screen.dart';
-import 'package:veegil/features/withdraw/screens/withdraw_screen.dart';
+import 'package:send_money_app/api/services/resources/managers/session_manager.dart';
+import 'package:send_money_app/core/navigation/app_routes.dart';
+import 'package:send_money_app/features/authentication/screen/login.dart';
+import 'package:send_money_app/features/authentication/screen/sign_up.dart';
+import 'package:send_money_app/features/get_started/screen/dashboard_screen.dart';
+import 'package:send_money_app/features/get_started/screen/landing_page_screen.dart';
+import 'package:send_money_app/features/onboarding/screens/onboarding_screen.dart';
+import 'package:send_money_app/features/shared/bindings/main_binding.dart';
+import 'package:send_money_app/features/transaction_history/screens/transaction_history.dart';
+import 'package:send_money_app/features/transfer/screens/top_up_waller_screen.dart';
+import 'package:send_money_app/features/transfer/screens/transfer_screen.dart';
+import 'package:send_money_app/features/withdraw/screens/withdraw_screen.dart';
 
 class AppRouter {
   static final pages = [

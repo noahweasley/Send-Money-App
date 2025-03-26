@@ -2,7 +2,7 @@
 import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:veegil/core/utilities/currency_format.dart';
+import 'package:send_money_app/core/utilities/currency_format.dart';
 
 part 'transaction_history_response.g.dart';
 

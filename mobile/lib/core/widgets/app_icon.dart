@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/assets.dart';
+import 'package:send_money_app/core/constants/assets.dart';
 
 class AppLogo extends StatelessWidget {
   final double? width;

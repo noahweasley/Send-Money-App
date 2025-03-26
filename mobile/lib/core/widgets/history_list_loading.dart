@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
 
 class HistoryListLoading extends StatelessWidget {
   const HistoryListLoading({super.key});

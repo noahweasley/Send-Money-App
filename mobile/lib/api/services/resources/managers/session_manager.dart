@@ -1,5 +1,5 @@
-import 'package:veegil/api/services/resources/managers/session_constants.dart';
-import 'package:veegil/core/database/database.dart';
+import 'package:send_money_app/api/services/resources/managers/session_constants.dart';
+import 'package:send_money_app/core/database/database.dart';
 
 class SessionManager {
   static final db = DatabaseService.instance;

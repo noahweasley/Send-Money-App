@@ -1,4 +1,4 @@
-part of 'package:veegil/core/database/database.dart';
+part of 'package:send_money_app/core/database/database.dart';
 
 class _AdapterList {
   // add all hive adapters here

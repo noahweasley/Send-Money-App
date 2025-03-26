@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:veegil/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/colors.dart';
 
 extension WidgetExtension on Widget? {
   /// With custom height and width

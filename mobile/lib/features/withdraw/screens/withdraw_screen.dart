@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/utilities/size_config.dart';
-import 'package:veegil/core/validators/validators.dart';
-import 'package:veegil/core/widgets/app_bar.dart';
-import 'package:veegil/core/widgets/app_button.dart';
-import 'package:veegil/core/widgets/app_icon.dart';
-import 'package:veegil/core/widgets/app_textfield.dart';
-import 'package:veegil/core/widgets/overlay_indeterminate_progress.dart';
-import 'package:veegil/features/withdraw/controllers/withdraw_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/utilities/size_config.dart';
+import 'package:send_money_app/core/validators/validators.dart';
+import 'package:send_money_app/core/widgets/app_bar.dart';
+import 'package:send_money_app/core/widgets/app_button.dart';
+import 'package:send_money_app/core/widgets/app_icon.dart';
+import 'package:send_money_app/core/widgets/app_textfield.dart';
+import 'package:send_money_app/core/widgets/overlay_indeterminate_progress.dart';
+import 'package:send_money_app/features/withdraw/controllers/withdraw_controller.dart';
 
 class WithdrawScreen extends GetView<WithdrawController> {
   const WithdrawScreen({super.key});
@@ -50,7 +50,7 @@ class WithdrawScreen extends GetView<WithdrawController> {
                           child: AppLogo(),
                         ),
                         Text(
-                          'Instant Withdrawals from Veegil Bank',
+                          'Instant Withdrawals from send_money_app Bank',
                           textAlign: TextAlign.center,
                           style: AppStyle.headline5PrimaryDark,
                         ),

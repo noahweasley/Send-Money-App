@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:veegil/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/colors.dart';
 
 class AnnotatedStatusBar extends StatelessWidget {
   final Widget child;

@@ -1,4 +1,4 @@
-import 'package:veegil/core/validators/error_messages.dart';
+import 'package:send_money_app/core/validators/error_messages.dart';
 
 class EmptyStringValidator {
   /// private

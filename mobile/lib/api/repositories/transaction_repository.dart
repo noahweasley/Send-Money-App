@@ -1,16 +1,16 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:veegil/api/services/endpoints.dart';
-import 'package:veegil/api/services/exceptions/dio_exceptions.dart';
-import 'package:veegil/api/services/helpers/api_connection_helper.dart';
-import 'package:veegil/api/services/helpers/status_code.dart';
-import 'package:veegil/api/services/requests/transfer_request/transfer_request.dart';
-import 'package:veegil/api/services/requests/withdraw_request/withdraw_request.dart';
-import 'package:veegil/api/services/resources/managers/session_manager.dart';
-import 'package:veegil/api/services/responses/transaction_history_response/transaction_history_response.dart';
-import 'package:veegil/api/services/responses/transfer_response/transfer_response.dart';
-import 'package:veegil/api/services/responses/withdraw_response/withdraw_response.dart';
+import 'package:send_money_app/api/services/endpoints.dart';
+import 'package:send_money_app/api/services/exceptions/dio_exceptions.dart';
+import 'package:send_money_app/api/services/helpers/api_connection_helper.dart';
+import 'package:send_money_app/api/services/helpers/status_code.dart';
+import 'package:send_money_app/api/services/requests/transfer_request/transfer_request.dart';
+import 'package:send_money_app/api/services/requests/withdraw_request/withdraw_request.dart';
+import 'package:send_money_app/api/services/resources/managers/session_manager.dart';
+import 'package:send_money_app/api/services/responses/transaction_history_response/transaction_history_response.dart';
+import 'package:send_money_app/api/services/responses/transfer_response/transfer_response.dart';
+import 'package:send_money_app/api/services/responses/withdraw_response/withdraw_response.dart';
 
 class TransactionRepository {
   final apiConnectionHelper = ApiConnectionHelper();

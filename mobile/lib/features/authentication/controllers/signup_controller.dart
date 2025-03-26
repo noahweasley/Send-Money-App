@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:veegil/api/repositories/auth_repository.dart';
-import 'package:veegil/api/services/requests/signup_request/signup_request.dart';
-import 'package:veegil/core/navigation/app_routes.dart';
-import 'package:veegil/core/utilities/extensions/error_extension.dart';
-import 'package:veegil/core/validators/regex_patterns.dart';
-import 'package:veegil/core/widgets/notifiers.dart';
-import 'package:veegil/core/widgets/password_strength_bar.dart';
+import 'package:send_money_app/api/repositories/auth_repository.dart';
+import 'package:send_money_app/api/services/requests/signup_request/signup_request.dart';
+import 'package:send_money_app/core/navigation/app_routes.dart';
+import 'package:send_money_app/core/utilities/extensions/error_extension.dart';
+import 'package:send_money_app/core/validators/regex_patterns.dart';
+import 'package:send_money_app/core/widgets/notifiers.dart';
+import 'package:send_money_app/core/widgets/password_strength_bar.dart';
 
 class SignupController extends GetxController {
   final userRepository = AuthRepository();
@@ -83,7 +83,7 @@ class SignupController extends GetxController {
 
           await Notifiers.showAppDialog(
             type: NotificationType.success,
-            title: 'Sucessful',
+            title: 'Successful',
             subtitle: 'You will be navigated to login in 3 seconds',
             buttons: [
               DialogButton(
@@ -94,6 +94,11 @@ class SignupController extends GetxController {
                 },
               ),
             ],
+          );
+        } else {
+          Notifiers.showSnackBar(
+            type: NotificationType.warning,
+            message: 'Something went wrong',
           );
         }
       } on Exception catch (err) {

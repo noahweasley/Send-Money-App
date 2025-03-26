@@ -1,4 +1,4 @@
-import 'package:veegil/core/utilities/size_config.dart';
+import 'package:send_money_app/core/utilities/size_config.dart';
 
 extension SizeExtensions on num {
   double get h => SizeConfig.getHeight(toDouble());

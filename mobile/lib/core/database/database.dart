@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'package:veegil/core/database/adapters/adapters.dart';
+part 'adapters/adapters.dart';
 
 class DatabaseService {
   static final instance = DatabaseService._();

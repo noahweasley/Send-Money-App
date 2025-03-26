@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-import 'package:veegil/core/constants/app_style.dart';
-import 'package:veegil/core/constants/colors.dart';
-import 'package:veegil/core/constants/dimensions.dart';
-import 'package:veegil/core/widgets/header.dart';
-import 'package:veegil/core/widgets/transaction_list_item.dart';
-import 'package:veegil/features/transaction_history/controllers/history_controller.dart';
+import 'package:send_money_app/core/constants/app_style.dart';
+import 'package:send_money_app/core/constants/colors.dart';
+import 'package:send_money_app/core/constants/dimensions.dart';
+import 'package:send_money_app/core/widgets/header.dart';
+import 'package:send_money_app/core/widgets/transaction_list_item.dart';
+import 'package:send_money_app/features/transaction_history/controllers/history_controller.dart';
 
 class MainList extends StatelessWidget {
   final HistoryController controller;

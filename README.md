@@ -1,6 +1,6 @@
 # SendMoney Bank App
 
-This README file provides an overview of the Banking App with features included as instructions stated below developed for the technical assessment at Veegil Technologies
+This README file provides an overview of the Banking App with features included as instructions stated below developed for the technical assessment at send_money_app Technologies
 
 ## Getting Started
 
@@ -18,13 +18,15 @@ To get started with the project, follow the steps below:
 1. Clone the project repository using the following command:
 
    ```
-   git clone https://gitlab.com/noahweasley/veegil.git
+   git clone https://gitlab.com/noahweasley/send_money_app.git
    ```
+
 2. Navigate to the project directory:
 
    ```
-   cd veegil
+   cd send_money_app
    ```
+
 3. Fetch the dependencies by running the following command:
 
    ```
@@ -50,6 +52,7 @@ These are some of the tools used to build the application:
   ```
 
   To run the build runner and watch for future changes.
+
 - Run launcher icon generation, flutter_launcher_icons package was used by running the command below:
 
   ```shell
@@ -166,7 +169,7 @@ This screen aims to help user top-up their account
 
 ### Transfer
 
-Users can transfer to other Veegil user and the money is debited from their account
+Users can transfer to other send_money_app user and the money is debited from their account
 
 ![Transfer screen](screenshots/Transfer.png "Transfer Screen")
 
@@ -179,7 +182,6 @@ This screen aims let user view their transaction history
 ### Visualization of Transaction History
 
 This screen aims to visualize the monthly spending of the registered user. The blue bars in the bar chart represents the credits for a single month, while the red bar represents the debit for a single month
-
 
 ## Conclusion
 

@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:veegil/api/services/endpoints.dart';
-import 'package:veegil/api/services/exceptions/dio_exceptions.dart';
-import 'package:veegil/api/services/helpers/api_connection_helper.dart';
-import 'package:veegil/api/services/helpers/status_code.dart';
-import 'package:veegil/api/services/responses/user_info_response/user_info_response.dart';
+import 'package:send_money_app/api/services/endpoints.dart';
+import 'package:send_money_app/api/services/exceptions/dio_exceptions.dart';
+import 'package:send_money_app/api/services/helpers/api_connection_helper.dart';
+import 'package:send_money_app/api/services/helpers/status_code.dart';
+import 'package:send_money_app/api/services/responses/user_info_response/user_info_response.dart';
 
 class UserInfoRepository {
   final apiConnectionHelper = ApiConnectionHelper();

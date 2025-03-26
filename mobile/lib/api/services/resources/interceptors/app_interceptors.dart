@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-// import 'package:veegil/core/navigations/app_router.dart';
-// import 'package:veegil/core/navigations/app_routes.dart';
+// import 'package:send_money_app/core/navigations/app_router.dart';
+// import 'package:send_money_app/core/navigations/app_routes.dart';
 
 // final _dio = Dio();
 

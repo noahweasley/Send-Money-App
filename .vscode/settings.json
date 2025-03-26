@@ -11,7 +11,5 @@
     "editor.tabSize": 3,
     "editor.defaultFormatter": "Dart-Code.dart-code"
   },
-  "cSpell.words": [
-    "veegil"
-  ]
+  "cSpell.words": ["send_money_app"]
 }
