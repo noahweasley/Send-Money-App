@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:veegil/api/services/resources/managers/session_manager.dart';
@@ -8,7 +8,7 @@ import 'package:veegil/features/onboarding/screens/onboarding_items.dart';
 
 class OnBoardingController extends GetxController {
   final currentIndex = 0.obs;
-  final pageController = CarouselController();
+  final pageController = carousel_slider.CarouselController();
 
   final List<OnBoardingItem> onBoardingItems = [
     OnBoardingItem(
@@ -37,7 +37,7 @@ class OnBoardingController extends GetxController {
     );
   }
 
-  void onPageChanged(int index, CarouselPageChangedReason _) {
+  void onPageChanged(int index, carousel_slider.CarouselPageChangedReason _) {
     currentIndex.value = index;
   }
 }
