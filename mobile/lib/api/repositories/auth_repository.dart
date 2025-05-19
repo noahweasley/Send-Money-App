@@ -13,7 +13,6 @@ import 'package:send_money_app/api/services/responses/signup_response/signup_res
 class AuthRepository {
   final apiConnectionHelper = ApiConnectionHelper();
 
-  /// login user
   Future<LoginResponse> loginAsync(LoginRequest request) async {
     try {
       final response = await apiConnectionHelper.postDataAsync(
@@ -35,7 +34,6 @@ class AuthRepository {
     }
   }
 
-  // Register user
   Future<SignupResponse> signupAsync(SignupRequest request) async {
     try {
       final response = await apiConnectionHelper.postDataAsync(

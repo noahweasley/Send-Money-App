@@ -2,7 +2,7 @@ import 'package:send_money_app/api/services/enums/environment.dart';
 
 class ApiConfigHelper {
   static String getBaseUrlOnEnvironment(Environment environment) {
-    const defaultBaseUrl = 'https://bankapi.send_money_app.com/';
+    const defaultBaseUrl = 'http://localhost:4000';
     String baseUrl;
 
     switch (environment) {

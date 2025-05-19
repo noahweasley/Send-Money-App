@@ -1,10 +1,21 @@
 {
   "version": "0.2",
-  "ignorePaths": ["cspell.json"],
+  "ignorePaths": [
+    "cspell.json"
+  ],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "flagWords": ["hte", "hate", "fuck"],
-  "words": [],
+  "flagWords": [
+    "hte",
+    "hate",
+    "fuck"
+  ],
+  "words": [
+    "PGDATABASE",
+    "PGHOST",
+    "PGPASSWORD",
+    "PGPORT"
+  ],
   "ignoreWords": [],
   "import": []
 }
